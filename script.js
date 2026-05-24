@@ -51,16 +51,21 @@ document.querySelectorAll('.service-card, .product-card').forEach(card => {
     observer.observe(card);
 });
 
-// Mobile menu toggle (for future enhancement)
-const createMobileMenu = () => {
-    const nav = document.querySelector('.nav');
-    const header = document.querySelector('.header-content');
-    
-    if (window.innerWidth <= 768) {
-        // Mobile menu functionality can be added here
-        console.log('Mobile view detected');
-    }
-};
+// Mobile menu toggle logic
+const menuToggle = document.querySelector('.mobile-menu-toggle');
+const nav = document.querySelector('.nav');
 
-window.addEventListener('resize', createMobileMenu);
-createMobileMenu();
+if (menuToggle && nav) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
+}
