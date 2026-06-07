@@ -83,6 +83,11 @@ body::before {
     z-index: 1;
 }
 
+/* Offset anchor jumps so the sticky header doesn't cover section tops */
+section[id] {
+    scroll-margin-top: 90px;
+}
+
 /* ===== TYPOGRAPHY ===== */
 h1,
 h2,
@@ -135,7 +140,8 @@ h6 {
 /* ===== BUTTONS ===== */
 .btn-primary,
 .btn-secondary,
-.btn-blue {
+.btn-blue,
+.btn-whatsapp {
     display: inline-block;
     padding: 0.875rem 2rem;
     font-family: var(--font-body);
@@ -145,6 +151,8 @@ h6 {
     transition: var(--transition);
     cursor: pointer;
     border: 2px solid transparent;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .btn-blue {
@@ -184,6 +192,31 @@ h6 {
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(55, 78, 242, 0.25);
+}
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: white;
+    border-color: #25d366;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1da851;
+    border-color: #1da851;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+}
+
+.wa-icon {
+    width: 1.2em;
+    height: 1.2em;
+    fill: currentColor;
+    flex-shrink: 0;
 }
 
 .btn-large {
@@ -270,7 +303,8 @@ h6 {
     color: var(--color-blue);
 }
 
-.nav .btn-primary {
+.nav .btn-primary,
+.nav .btn-whatsapp {
     padding: 0.625rem 1.5rem;
 }
 
@@ -313,22 +347,35 @@ h6 {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    padding: var(--spacing-xl) 0;
+    padding: 2.25rem 0 var(--spacing-lg);
     background: linear-gradient(135deg, var(--color-light) 0%, #fff 100%);
+}
+
+/* Wider container so the headline wraps shorter and the CTAs sit above the fold */
+.hero .container {
+    max-width: 1340px;
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
+    grid-template-columns: 1.6fr 1fr;
+    gap: var(--spacing-md);
     align-items: center;
 }
 
 .hero-title {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.hero-subheadline {
+    font-size: 2.25rem;
     color: var(--color-dark);
     margin-bottom: var(--spacing-sm);
-    line-height: 1.1;
+    line-height: 1.15;
+    letter-spacing: 1px;
 }
 
 .hero-title .highlight {
@@ -342,9 +389,9 @@ h6 {
 
 .hero-subtitle {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--color-dark);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     opacity: 0.8;
     line-height: 1.2;
     letter-spacing: 1px;
@@ -389,7 +436,7 @@ h6 {
 
 .hero-photo {
     width: 100%;
-    max-width: 450px;
+    max-width: 370px;
     height: auto;
     border-radius: 50%;
     object-fit: cover;
@@ -537,9 +584,10 @@ h6 {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+    margin: var(--spacing-lg) auto 0;
+    max-width: 850px;
 }
 
 .service-card {
@@ -614,7 +662,7 @@ h6 {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
 }
@@ -901,6 +949,18 @@ h6 {
         justify-content: center;
     }
 
+    /* Stack the hero text so the credential cards can drop below the buttons */
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-credentials {
+        order: 1;
+        margin-top: var(--spacing-md);
+        margin-bottom: 0;
+    }
+
     .services-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
@@ -918,6 +978,10 @@ h6 {
 
     .hero-title {
         font-size: 3rem;
+    }
+
+    .hero-subheadline {
+        font-size: 1.9rem;
     }
 
     .section-title {
@@ -973,8 +1037,8 @@ h6 {
         flex-direction: column;
         position: absolute;
         top: 100%;
-        left: -15px;
-        right: -15px;
+        left: calc(-1 * var(--spacing-md));
+        right: calc(-1 * var(--spacing-md));
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
@@ -1010,6 +1074,10 @@ h6 {
 
     .hero-title {
         font-size: 2.25rem;
+    }
+
+    .hero-subheadline {
+        font-size: 1.6rem;
     }
 
     .hero-subtitle {
@@ -1054,19 +1122,58 @@ h6 {
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
     .btn-primary,
     .btn-secondary,
     .btn-blue,
+    .btn-whatsapp,
     .btn-large {
         width: 100%;
         text-align: center;
         padding: 0.875rem 1.5rem;
         font-size: 1rem;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         gap: 0.75rem;
         width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subheadline {
+        font-size: 1.4rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    /* Stack credential pills so long labels don't overflow tiny screens */
+    .hero-credentials {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .hero-credentials li {
+        white-space: normal;
+        text-align: center;
+    }
+
+    .section-title,
+    .grew-up-title,
+    .cta-title {
+        font-size: 2rem;
+    }
+
+    .grew-up-list li {
+        font-size: 1rem;
     }
 }
