@@ -440,7 +440,7 @@ h6 {
     height: auto;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center 32%;
     aspect-ratio: 1;
     box-shadow: 0 20px 60px rgba(244, 152, 149, 0.3);
     animation: float 6s ease-in-out infinite;
