@@ -14,21 +14,20 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Page-specific styles for the experience page */
         .experience-page {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        .experience-hero {
+        .experience-main {
+            flex: 1;
             padding: 8rem 0 4rem;
-            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .experience-hero::before {
+        .experience-main::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -47,103 +46,9 @@
             66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
         }
 
-        .experience-hero .container {
+        .experience-main .container {
             position: relative;
             z-index: 1;
-        }
-
-        .experience-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #6495ed, #4a7ade);
-            color: #fff;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .experience-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            line-height: 1.1;
-            margin-bottom: 1.2rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .experience-subtitle {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            font-weight: 300;
-            color: #aaa;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            line-height: 1.7;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .experience-image-wrapper {
-            max-width: 400px;
-            margin: 0 auto 3rem;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        .experience-image-wrapper img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(100, 149, 237, 0.2),
-                         0 0 0 1px rgba(255, 255, 255, 0.05);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .experience-image-wrapper img:hover {
-            transform: translateY(-4px) scale(1.01);
-            box-shadow: 0 30px 80px rgba(100, 149, 237, 0.3),
-                         0 0 0 1px rgba(255, 255, 255, 0.08);
-        }
-
-        /* Form / iframe section */
-        .experience-form-section {
-            padding: 4rem 0 6rem;
-            text-align: center;
-        }
-
-        .form-intro {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
-            color: #bbb;
-            margin-bottom: 2rem;
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .iframe-container {
-            max-width: 650px;
-            margin: 0 auto;
-            border-radius: 16px;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         /* Back link */
@@ -156,7 +61,7 @@
             color: #888;
             text-decoration: none;
             transition: color 0.3s ease;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         .back-link:hover {
@@ -169,20 +74,71 @@
             fill: currentColor;
         }
 
-        /* Highlights */
+        /* Two-column layout */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Left column — info */
+        .experience-info {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .experience-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #6495ed, #4a7ade);
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .experience-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+        }
+
+        .experience-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            font-weight: 300;
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
         .experience-highlights {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-            animation: fadeInUp 0.8s ease-out 0.5s both;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin-bottom: 2.5rem;
         }
 
         .highlight-item {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.7rem;
             font-family: 'Poppins', sans-serif;
             font-size: 0.95rem;
             color: #ccc;
@@ -192,19 +148,80 @@
             font-size: 1.3rem;
         }
 
-        @media (max-width: 768px) {
-            .experience-hero {
+        .experience-image-wrapper {
+            margin-top: 0.5rem;
+        }
+
+        .experience-image-wrapper img {
+            width: 100%;
+            max-width: 360px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(100, 149, 237, 0.2),
+                         0 0 0 1px rgba(255, 255, 255, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .experience-image-wrapper img:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 30px 80px rgba(100, 149, 237, 0.3),
+                         0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        /* Right column — form */
+        .experience-form-col {
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .form-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            margin-bottom: 0.6rem;
+            text-align: center;
+        }
+
+        .form-intro {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            color: #999;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .iframe-container {
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+            min-height: 460px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .experience-main {
                 padding: 7rem 0 3rem;
             }
 
-            .experience-highlights {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
+            .experience-info {
+                text-align: center;
             }
 
-            .experience-form-section {
-                padding: 2rem 0 4rem;
+            .experience-highlights {
+                align-items: center;
+            }
+
+            .experience-image-wrapper {
+                text-align: center;
+            }
+
+            .experience-image-wrapper img {
+                max-width: 300px;
             }
         }
     </style>
@@ -243,65 +260,69 @@
             </div>
         </header>
 
-        <!-- Experience Hero -->
-        <section class="experience-hero">
+        <!-- Two-Column Experience Section -->
+        <section class="experience-main">
             <div class="container">
                 <a href="/" class="back-link">
                     <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
                     Back to Home
                 </a>
-                <div class="experience-badge">Limited Spots</div>
-                <h1 class="experience-title">Join My <span class="text-blue">5-Day Experience</span></h1>
-                <p class="experience-subtitle">
-                    Something powerful is coming. Get on the waitlist to be the first to know when doors open — and start your transformation journey with Lucy.
-                </p>
 
-                <div class="experience-highlights">
-                    <div class="highlight-item">
-                        <span class="highlight-icon">🗓️</span>
-                        <span>5 Transformative Days</span>
+                <div class="experience-grid">
+                    <!-- Left Column — Info & Image -->
+                    <div class="experience-info">
+                        <div class="experience-badge">Limited Spots</div>
+                        <h1 class="experience-title">Join My <span class="text-blue">5-Day Experience</span></h1>
+                        <p class="experience-subtitle">
+                            Something powerful is coming. Get on the waitlist to be the first to know when doors open — and start your transformation journey with Lucy.
+                        </p>
+
+                        <div class="experience-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🗓️</span>
+                                <span>5 Transformative Days</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">💡</span>
+                                <span>Live Guidance &amp; Support</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🔥</span>
+                                <span>Real, Lasting Change</span>
+                            </div>
+                        </div>
+
+                        <div class="experience-image-wrapper">
+                            <img src="lucy-hero.jpg" alt="Lucy Charlotte Nicholls — 5-Day Experience">
+                        </div>
                     </div>
-                    <div class="highlight-item">
-                        <span class="highlight-icon">💡</span>
-                        <span>Live Guidance &amp; Support</span>
+
+                    <!-- Right Column — Form -->
+                    <div class="experience-form-col">
+                        <h2 class="form-heading">Get On The <span class="text-blue">Waitlist</span></h2>
+                        <p class="form-intro">Secure your spot. Drop your details below and I'll send you everything you need to know.</p>
+
+                        <div class="iframe-container">
+                            <iframe
+                                src="https://connect.hisubhadeep.com/widget/form/ypT1ZNci0jk7RGCpSb3u"
+                                style="width:100%;height:100%;border:none;border-radius:8px"
+                                id="inline-ypT1ZNci0jk7RGCpSb3u"
+                                data-layout="{'id':'INLINE'}"
+                                data-trigger-type="alwaysShow"
+                                data-trigger-value=""
+                                data-activation-type="alwaysActivated"
+                                data-activation-value=""
+                                data-deactivation-type="neverDeactivate"
+                                data-deactivation-value=""
+                                data-form-name="5 Day Experience"
+                                data-height="434"
+                                data-layout-iframe-id="inline-ypT1ZNci0jk7RGCpSb3u"
+                                data-form-id="ypT1ZNci0jk7RGCpSb3u"
+                                title="5 Day Experience">
+                            </iframe>
+                            <script src="https://connect.hisubhadeep.com/js/form_embed.js"></script>
+                        </div>
                     </div>
-                    <div class="highlight-item">
-                        <span class="highlight-icon">🔥</span>
-                        <span>Real, Lasting Change</span>
-                    </div>
-                </div>
-
-                <div class="experience-image-wrapper">
-                    <img src="lucy-hero.jpg" alt="Lucy Charlotte Nicholls — 5-Day Experience">
-                </div>
-            </div>
-        </section>
-
-        <!-- Form Section -->
-        <section class="experience-form-section" id="waitlist">
-            <div class="container">
-                <h2 class="section-title center">Get On The <span class="text-blue">Waitlist</span></h2>
-                <p class="form-intro">Secure your spot before it fills up. Drop your details below and I'll send you everything you need to know.</p>
-
-                <div class="iframe-container">
-                    <iframe
-                        src="https://connect.hisubhadeep.com/widget/form/ypT1ZNci0jk7RGCpSb3u"
-                        style="width:100%;height:100%;border:none;border-radius:8px"
-                        id="inline-ypT1ZNci0jk7RGCpSb3u"
-                        data-layout="{'id':'INLINE'}"
-                        data-trigger-type="alwaysShow"
-                        data-trigger-value=""
-                        data-activation-type="alwaysActivated"
-                        data-activation-value=""
-                        data-deactivation-type="neverDeactivate"
-                        data-deactivation-value=""
-                        data-form-name="5 Day Experience"
-                        data-height="434"
-                        data-layout-iframe-id="inline-ypT1ZNci0jk7RGCpSb3u"
-                        data-form-id="ypT1ZNci0jk7RGCpSb3u"
-                        title="5 Day Experience">
-                    </iframe>
-                    <script src="https://connect.hisubhadeep.com/js/form_embed.js"></script>
                 </div>
             </div>
         </section>
