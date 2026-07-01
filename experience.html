@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-Day Experience Waitlist | Lucy Charlotte Nicholls</title>
+    <meta name="description"
+        content="Join Lucy Charlotte Nicholls' exclusive 5-day experience. Sign up for the waitlist and begin your transformation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page-specific styles for the experience page */
+        .experience-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .experience-hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(100, 149, 237, 0.08) 0%, transparent 50%),
+                         radial-gradient(circle at 70% 50%, rgba(255, 107, 107, 0.06) 0%, transparent 50%);
+            animation: subtleFloat 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes subtleFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, -1%) rotate(1deg); }
+            66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
+        }
+
+        .experience-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .experience-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #6495ed, #4a7ade);
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .experience-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .experience-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 300;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .experience-image-wrapper {
+            max-width: 400px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .experience-image-wrapper img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(100, 149, 237, 0.2),
+                         0 0 0 1px rgba(255, 255, 255, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .experience-image-wrapper img:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 30px 80px rgba(100, 149, 237, 0.3),
+                         0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        /* Form / iframe section */
+        .experience-form-section {
+            padding: 4rem 0 6rem;
+            text-align: center;
+        }
+
+        .form-intro {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: #bbb;
+            margin-bottom: 2rem;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .iframe-container {
+            max-width: 650px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            color: #6495ed;
+        }
+
+        .back-link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Highlights */
+        .experience-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .highlight-icon {
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .experience-hero {
+                padding: 7rem 0 3rem;
+            }
+
+            .experience-highlights {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .experience-form-section {
+                padding: 2rem 0 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="experience-page">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="/" style="text-decoration:none;color:inherit;">
+                            <span class="logo-name">Lucy Charlotte <span class="text-blue">Nicholls</span></span>
+                            <span class="logo-tagline">Quantum Coach | Bestselling Author</span>
+                        </a>
+                    </div>
+                    <nav class="nav">
+                        <a href="/">Home</a>
+                        <a href="/#about">About</a>
+                        <a href="https://wa.me/447392170894" target="_blank" rel="noopener noreferrer"
+                            class="btn-whatsapp">
+                            <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24zm-3.62 4.41c-.17 0-.45.06-.69.31-.24.25-.91.89-.91 2.17 0 1.28.93 2.52 1.06 2.69.13.17 1.83 2.79 4.43 3.91.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.59.13-.17.25-.67.85-.83 1.02-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.09-1.29-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.42-.8-1.94-.21-.51-.42-.44-.58-.45-.15-.01-.32-.01-.49-.01z" />
+                            </svg>
+                            Message me on WhatsApp
+                        </a>
+                    </nav>
+                    <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Experience Hero -->
+        <section class="experience-hero">
+            <div class="container">
+                <a href="/" class="back-link">
+                    <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                    Back to Home
+                </a>
+                <div class="experience-badge">Limited Spots</div>
+                <h1 class="experience-title">Join My <span class="text-blue">5-Day Experience</span></h1>
+                <p class="experience-subtitle">
+                    Something powerful is coming. Get on the waitlist to be the first to know when doors open — and start your transformation journey with Lucy.
+                </p>
+
+                <div class="experience-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🗓️</span>
+                        <span>5 Transformative Days</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">💡</span>
+                        <span>Live Guidance &amp; Support</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🔥</span>
+                        <span>Real, Lasting Change</span>
+                    </div>
+                </div>
+
+                <div class="experience-image-wrapper">
+                    <img src="lucy-hero.jpg" alt="Lucy Charlotte Nicholls — 5-Day Experience">
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section class="experience-form-section" id="waitlist">
+            <div class="container">
+                <h2 class="section-title center">Get On The <span class="text-blue">Waitlist</span></h2>
+                <p class="form-intro">Secure your spot before it fills up. Drop your details below and I'll send you everything you need to know.</p>
+
+                <div class="iframe-container">
+                    <iframe
+                        src="https://connect.hisubhadeep.com/widget/form/ypT1ZNci0jk7RGCpSb3u"
+                        style="width:100%;height:100%;border:none;border-radius:8px"
+                        id="inline-ypT1ZNci0jk7RGCpSb3u"
+                        data-layout="{'id':'INLINE'}"
+                        data-trigger-type="alwaysShow"
+                        data-trigger-value=""
+                        data-activation-type="alwaysActivated"
+                        data-activation-value=""
+                        data-deactivation-type="neverDeactivate"
+                        data-deactivation-value=""
+                        data-form-name="5 Day Experience"
+                        data-height="434"
+                        data-layout-iframe-id="inline-ypT1ZNci0jk7RGCpSb3u"
+                        data-form-id="ypT1ZNci0jk7RGCpSb3u"
+                        title="5 Day Experience">
+                    </iframe>
+                    <script src="https://connect.hisubhadeep.com/js/form_embed.js"></script>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="logo">Lucy <span class="text-blue">Charlotte</span></div>
+                        <p class="footer-tagline">Helping you take back your power</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="https://www.facebook.com/profile.php?id=100093388753054" target="_blank">Facebook</a>
+                        <a href="https://www.instagram.com/lucycharlottenicholls" target="_blank">Instagram</a>
+                        <a href="https://stan.store/lucycharlottenicholls" target="_blank">Shop</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Lucy Charlotte Nicholls. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

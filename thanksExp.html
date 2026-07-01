@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're On The Waitlist! | Lucy Charlotte Nicholls</title>
+    <meta name="description"
+        content="Thank you for joining the waitlist for Lucy Charlotte Nicholls' 5-Day Experience. You'll be notified when we go live!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .thanks-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .thanks-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 1.5rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thanks-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 40% 40%, rgba(100, 149, 237, 0.1) 0%, transparent 50%),
+                         radial-gradient(circle at 60% 60%, rgba(72, 199, 142, 0.08) 0%, transparent 50%);
+            animation: bgFloat 25s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(1%, -2%) rotate(1deg); }
+            66% { transform: translate(-2%, 1%) rotate(-1deg); }
+        }
+
+        .thanks-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        /* Animated checkmark */
+        .thanks-check {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #48c78e, #3ab07a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+            box-shadow: 0 10px 40px rgba(72, 199, 142, 0.3);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .thanks-check svg {
+            width: 50px;
+            height: 50px;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 60;
+            stroke-dashoffset: 60;
+            animation: drawCheck 0.5s ease-out 0.5s forwards;
+        }
+
+        @keyframes drawCheck {
+            to { stroke-dashoffset: 0; }
+        }
+
+        .thanks-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            animation: fadeUp 0.7s ease-out 0.3s both;
+        }
+
+        .thanks-message {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            font-weight: 300;
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.7s ease-out 0.5s both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .thanks-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeUp 0.7s ease-out 0.7s both;
+        }
+
+        .thanks-buttons .btn-primary {
+            padding: 0.9rem 2rem;
+        }
+
+        .thanks-buttons .btn-secondary {
+            padding: 0.9rem 2rem;
+        }
+
+        /* Confetti dots */
+        .confetti-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            opacity: 0;
+            animation: confettiFall 3s ease-out forwards;
+            z-index: 0;
+        }
+
+        @keyframes confettiFall {
+            0% { opacity: 1; transform: translateY(-50px) scale(1); }
+            100% { opacity: 0; transform: translateY(200px) scale(0.3); }
+        }
+
+        .confetti-dot:nth-child(1) { left: 15%; top: 20%; background: #6495ed; animation-delay: 0.2s; }
+        .confetti-dot:nth-child(2) { left: 30%; top: 15%; background: #ff6b6b; animation-delay: 0.4s; }
+        .confetti-dot:nth-child(3) { left: 50%; top: 10%; background: #48c78e; animation-delay: 0.1s; }
+        .confetti-dot:nth-child(4) { left: 70%; top: 18%; background: #ffd93d; animation-delay: 0.5s; }
+        .confetti-dot:nth-child(5) { left: 85%; top: 22%; background: #6495ed; animation-delay: 0.3s; }
+        .confetti-dot:nth-child(6) { left: 25%; top: 25%; background: #ff6b6b; animation-delay: 0.6s; }
+        .confetti-dot:nth-child(7) { left: 60%; top: 12%; background: #ffd93d; animation-delay: 0.15s; }
+        .confetti-dot:nth-child(8) { left: 40%; top: 20%; background: #48c78e; animation-delay: 0.45s; }
+
+        @media (max-width: 768px) {
+            .thanks-section {
+                padding: 7rem 1.5rem 3rem;
+            }
+
+            .thanks-check {
+                width: 80px;
+                height: 80px;
+            }
+
+            .thanks-check svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="thanks-page">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="/" style="text-decoration:none;color:inherit;">
+                            <span class="logo-name">Lucy Charlotte <span class="text-blue">Nicholls</span></span>
+                            <span class="logo-tagline">Quantum Coach | Bestselling Author</span>
+                        </a>
+                    </div>
+                    <nav class="nav">
+                        <a href="/">Home</a>
+                        <a href="/#about">About</a>
+                        <a href="https://wa.me/447392170894" target="_blank" rel="noopener noreferrer"
+                            class="btn-whatsapp">
+                            <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24zm-3.62 4.41c-.17 0-.45.06-.69.31-.24.25-.91.89-.91 2.17 0 1.28.93 2.52 1.06 2.69.13.17 1.83 2.79 4.43 3.91.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.59.13-.17.25-.67.85-.83 1.02-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.09-1.29-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.42-.8-1.94-.21-.51-.42-.44-.58-.45-.15-.01-.32-.01-.49-.01z" />
+                            </svg>
+                            Message me on WhatsApp
+                        </a>
+                    </nav>
+                    <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Thank You Section -->
+        <section class="thanks-section">
+            <!-- Confetti dots -->
+            <div class="confetti-dot"></div>
+            <div class="confetti-dot"></div>
+            <div class="confetti-dot"></div>
+            <div class="confetti-dot"></div>
+            <div class="confetti-dot"></div>
+            <div class="confetti-dot"></div>
+            <div class="confetti-dot"></div>
+            <div class="confetti-dot"></div>
+
+            <div class="thanks-content">
+                <div class="thanks-check">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="4 12 9 17 20 6" />
+                    </svg>
+                </div>
+
+                <h1 class="thanks-title">You're On The <span class="text-blue">Waitlist!</span></h1>
+
+                <p class="thanks-message">
+                    Thanks for joining the <strong>5-Day Experience</strong> waitlist! 🎉<br>
+                    You'll be the first to know when we go live. Keep an eye on your inbox — something amazing is coming your way.
+                </p>
+
+                <div class="thanks-buttons">
+                    <a href="/" class="btn-primary btn-large">Back to Home</a>
+                    <a href="https://www.facebook.com/groups/1051728209531522" target="_blank"
+                        rel="noopener noreferrer" class="btn-secondary btn-large">Join the FB Community</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="logo">Lucy <span class="text-blue">Charlotte</span></div>
+                        <p class="footer-tagline">Helping you take back your power</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="https://www.facebook.com/profile.php?id=100093388753054" target="_blank">Facebook</a>
+                        <a href="https://www.instagram.com/lucycharlottenicholls" target="_blank">Instagram</a>
+                        <a href="https://stan.store/lucycharlottenicholls" target="_blank">Shop</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Lucy Charlotte Nicholls. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
