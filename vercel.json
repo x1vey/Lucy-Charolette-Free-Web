@@ -3,5 +3,8 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/qeendom", "destination": "/queendom", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/unmask", "destination": "/unmask.html" }
   ]
 }

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unmasking & Unburdened | Lucy Charlotte Nicholls</title>
+    <meta name="description"
+        content="Join us for a special Live session: Unmasking & Unburdened: Why Owning Your Neurodiversity is the End of Life Burnout.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --unmask-pink: #FF007A;
+            --unmask-blue: #0047AB;
+            --unmask-green: #76B900;
+            --unmask-black: #111111;
+        }
+
+        /* Responsive overrides for layout */
+        @media (max-width: 768px) {
+            .timeline-row {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 1rem !important;
+            }
+            .timeline-row ul {
+                text-align: left;
+                display: inline-block;
+            }
+            .about-content {
+                flex-direction: column !important;
+            }
+            .hero-title {
+                font-size: 3rem !important;
+            }
+        }
+        
+        .hero-video-bg {
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            min-width: 100%; 
+            min-height: 100%; 
+            width: auto; 
+            height: auto; 
+            transform: translate(-50%, -50%); 
+            z-index: 0; 
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(17, 17, 17, 0.7); 
+            z-index: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-name">Lucy Charlotte <span class="text-blue">Nicholls</span></span>
+                    <span class="logo-tagline">Quantum Coach | Bestselling Author</span>
+                </div>
+                <nav class="nav">
+                    <a href="/index.html#about">About</a>
+                    <a href="/index.html#services">Services</a>
+                    <a href="/index.html#products">Products</a>
+                    <a href="https://wa.me/447392170894" target="_blank" rel="noopener noreferrer"
+                        class="btn-whatsapp">
+                        <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24zm-3.62 4.41c-.17 0-.45.06-.69.31-.24.25-.91.89-.91 2.17 0 1.28.93 2.52 1.06 2.69.13.17 1.83 2.79 4.43 3.91.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.59.13-.17.25-.67.85-.83 1.02-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.09-1.29-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.42-.8-1.94-.21-.51-.42-.44-.58-.45-.15-.01-.32-.01-.49-.01z" />
+                        </svg>
+                        Message me on WhatsApp
+                    </a>
+                </nav>
+                <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero" style="position: relative; overflow: hidden; min-height: 90vh; display: flex; align-items: center; justify-content: center; padding-top: 80px;">
+        <!-- Pexels video: person drawing rainbow -->
+        <video autoplay loop muted playsinline class="hero-video-bg">
+            <source src="https://videos.pexels.com/video-files/8014403/8014403-hd_1920_1080_25fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="container" style="position: relative; z-index: 2; width: 100%;">
+            <div class="hero-content" style="flex-direction: column; text-align: center; justify-content: center;">
+                <div class="hero-text" style="max-width: 1000px; margin: 0 auto;">
+                    <h1 class="hero-title" style="color: #fff; font-size: 4.5rem; line-height: 1.1;"><span style="color: var(--unmask-pink); text-shadow: 0 0 10px rgba(255, 0, 122, 0.3);">Unmasking & Unburdened:</span><br>Why Owning Your Neurodiversity is the End of Life Burnout.</h1>
+                    <h2 class="hero-subheadline" style="color: #f0f0f0; margin-top: 1.5rem; font-size: 1.4rem; font-weight: 400;">Two neurodivergent experts, one life-changing conversation.<br>Join us for a special Live session inside the Facebook Group community.</h2>
+                    <div class="hero-buttons" style="justify-content: center; margin-top: 3rem;">
+                        <a href="https://www.facebook.com/groups/1051728209531522" target="_blank"
+                            class="btn-primary btn-large" style="background-color: var(--unmask-green); color: var(--unmask-black); border-color: var(--unmask-green); font-size: 1.1rem; padding: 1.2rem 3rem;">JOIN THE FREE FACEBOOK GROUP & ACCESS THE LIVE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Message -->
+    <section class="grew-up" style="background-color: var(--color-light);">
+        <div class="container">
+            <div class="grew-up-content" style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <h2 class="grew-up-title" style="font-size: 3.5rem;">Are you <span style="color: var(--unmask-blue);">soul-tired?</span></h2>
+                <p class="grew-up-message" style="font-size: 1.5rem; margin-top: 1.5rem; color: var(--unmask-black);">
+                    Not just 'a good night's sleep will fix it' tired, but <strong>bone-deep fatigued</strong> from trying to function in a world that isn't built for your brain?
+                </p>
+                <p style="font-size: 1.2rem; color: #555; margin-top: 1.5rem; line-height: 1.8;">
+                    We need to address the reality of ND Burnout—the constant masking, the endless overcompensating, and what it really means to be running on empty.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Attendees Will Gain -->
+    <section class="services" id="gain">
+        <div class="container">
+            <h2 class="section-title center">What You'll <span style="color: var(--unmask-pink);">Gain</span></h2>
+            <div class="services-grid" style="margin-top: 3rem;">
+                <div class="service-card" style="border-top: 4px solid var(--unmask-blue);">
+                    <div class="service-icon" style="color: var(--unmask-blue);">✨</div>
+                    <h3 class="service-title">Validation</h3>
+                    <p class="service-description">Understanding why masking directly drives exhaustion and burnout.</p>
+                </div>
+                <div class="service-card" style="border-top: 4px solid var(--unmask-pink);">
+                    <div class="service-icon" style="color: var(--unmask-pink);">🕊️</div>
+                    <h3 class="service-title">Permission</h3>
+                    <p class="service-description">Scrapping standard expectations and honoring your natural energy and pace.</p>
+                </div>
+                <div class="service-card" style="border-top: 4px solid var(--unmask-blue);">
+                    <div class="service-icon" style="color: var(--unmask-blue);">🦸‍♀️</div>
+                    <h3 class="service-title">Proof</h3>
+                    <p class="service-description">Embracing dyslexia and neurodiversity as a genuine superpower.</p>
+                </div>
+                <div class="service-card" style="border-top: 4px solid var(--unmask-pink);">
+                    <div class="service-icon" style="color: var(--unmask-pink);">🗺️</div>
+                    <h3 class="service-title">Strategy</h3>
+                    <p class="service-description">Actionable, real-world adjustments to work with your brain instead of against it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Lucy Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <!-- Original Image from index.html -->
+                    <img src="lucy-about.jpg" alt="Lucy Charlotte Nicholls" class="about-photo">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">Meet <span class="text-blue">Lucy</span></h2>
+                    <p class="about-description">
+                       Hi, I'm Lucy, a Quantum Coach dedicated to helping women heal self-abandonment and reconnect with who they truly are.
+                    </p>
+                    <p class="about-description">
+                       Through my signature Already Her™ Method, I guide women through powerful identity work so they can become their own experts and create lasting transformation from the inside out. 
+                    </p>
+                    <p class="about-mission-list">
+                        As a bestselling author and content creator, I'm passionate about making personal growth practical, empowering, and accessible. My approach is caring, real, and often sprinkled with humour: because healing doesn't have to feel heavy.
+                    </p>
+                    <p class="about-mission-list">I believe the woman you're becoming is already within you; my work is about helping you remember her.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Angie Section -->
+    <section class="about" style="background-color: #fff; padding-top: 2rem;">
+        <div class="container">
+            <div class="about-content" style="flex-direction: row-reverse;">
+                <div class="about-image">
+                    <a href="https://www.facebook.com/angiemaysmindsetcoach" target="_blank">
+                        <img src="Angie.jpg" alt="Angie Mays - Mindset Coach" class="about-photo" style="object-fit: cover; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    </a>
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">Meet <span style="color: var(--unmask-pink);"><a href="https://www.facebook.com/angiemaysmindsetcoach" target="_blank" style="text-decoration: none; color: inherit;">Angie Mays</a></span></h2>
+                    <p class="about-description">
+                       Hi, I'm Angie, a dedicated coach who is passionately fighting for neurodivergent individuals and advocating through the lens of dyslexia.
+                    </p>
+                    <p class="about-description">
+                       My journey has shown me that our neurodiversity isn't a limitation; it's a profound strength when we learn how to harness it.
+                    </p>
+                    <p class="about-mission-list">
+                       I'm here to share the identity shifts and the unmasking journey that completely restored my life and energy. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Run of Show -->
+    <section class="products" style="background-color: var(--color-light); padding-top: 4rem;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="section-title center">Event <span class="text-blue">Details</span></h2>
+                <div style="display: inline-block; background: #fff; padding: 1.5rem 3rem; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 2px solid var(--color-blue); margin-top: 1rem;">
+                    <p style="font-size: 1.25rem; font-weight: 600; margin: 0; color: var(--unmask-black);">
+                        📅 Date & Time: [INSERT DATE] | [INSERT TIME + TIMEZONE]
+                    </p>
+                </div>
+            </div>
+
+            <h2 class="section-title center" style="margin-top: 5rem;">Run of <span style="color: var(--unmask-pink);">Show</span></h2>
+            <p style="text-align: center; margin-bottom: 3rem; font-size: 1.25rem; color: #666; font-family: var(--font-body);">30-Minute Live Event Framework</p>
+            
+            <div class="products-grid" style="grid-template-columns: 1fr; max-width: 900px; margin: 0 auto; gap: 2rem;">
+                
+                <div class="product-card timeline-row" style="display: flex; flex-direction: row; align-items: center; gap: 3rem; text-align: left; padding: 2rem 3rem; border-left: 6px solid var(--unmask-pink);">
+                    <div style="min-width: 160px; text-align: center;">
+                        <h3 style="color: var(--color-blue); font-size: 2rem; margin: 0; font-family: var(--font-heading);">00:00 - 05:00</h3>
+                        <span class="product-badge" style="background: var(--unmask-pink); margin-top: 0.5rem; display: inline-block; padding: 0.3rem 1rem;">5 Mins</span>
+                    </div>
+                    <div>
+                        <h3 class="product-title" style="margin-bottom: 0.5rem; font-size: 1.5rem;">Real-Talk Kickoff <span style="font-size: 1.1rem; color: #777; font-weight: normal; font-style: italic;">(Warm & Energetic)</span></h3>
+                        <ul style="padding-left: 1.5rem; color: #555; font-size: 1.1rem;">
+                            <li style="margin-bottom: 0.5rem;"><strong>Hook:</strong> Calling out life burnout in neurodivergent women.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>Define ND burnout:</strong> Masking, overcompensating, and system fatigue.</li>
+                            <li>Openly acknowledge having a simple 30-min framework.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card timeline-row" style="display: flex; flex-direction: row; align-items: center; gap: 3rem; text-align: left; padding: 2rem 3rem; border-left: 6px solid var(--unmask-blue);">
+                    <div style="min-width: 160px; text-align: center;">
+                        <h3 style="color: var(--color-blue); font-size: 2rem; margin: 0; font-family: var(--font-heading);">05:00 - 15:00</h3>
+                        <span class="product-badge" style="background: var(--unmask-pink); margin-top: 0.5rem; display: inline-block; padding: 0.3rem 1rem;">10 Mins</span>
+                    </div>
+                    <div>
+                        <h3 class="product-title" style="margin-bottom: 0.5rem; font-size: 1.5rem;">Part 1: The Cost of the Mask <span style="font-size: 1.1rem; color: #777; font-weight: normal; font-style: italic;">(Storytelling & Validation)</span></h3>
+                        <ul style="padding-left: 1.5rem; color: #555; font-size: 1.1rem;">
+                            <li style="margin-bottom: 0.5rem;"><strong>Host 1:</strong> Stopping the hide of dyslexia and the freedom that followed.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>Host 2:</strong> Identity shifts and unmasking journey.</li>
+                            <li><strong>Core takeaway:</strong> Hiding identity feeds burnout; unmasking restores life.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card timeline-row" style="display: flex; flex-direction: row; align-items: center; gap: 3rem; text-align: left; padding: 2rem 3rem; border-left: 6px solid var(--unmask-pink);">
+                    <div style="min-width: 160px; text-align: center;">
+                        <h3 style="color: var(--color-blue); font-size: 2rem; margin: 0; font-family: var(--font-heading);">15:00 - 25:00</h3>
+                        <span class="product-badge" style="background: var(--unmask-pink); margin-top: 0.5rem; display: inline-block; padding: 0.3rem 1rem;">10 Mins</span>
+                    </div>
+                    <div>
+                        <h3 class="product-title" style="margin-bottom: 0.5rem; font-size: 1.5rem;">Part 2: Rewriting Daily Rules <span style="font-size: 1.1rem; color: #777; font-weight: normal; font-style: italic;">(Practical & Empowering)</span></h3>
+                        <ul style="padding-left: 1.5rem; color: #555; font-size: 1.1rem;">
+                            <li style="margin-bottom: 0.5rem;">Permission to ditch standard "shoulds" and routines.</li>
+                            <li style="margin-bottom: 0.5rem;">Energy management vs. rigid time management.</li>
+                            <li><strong>Audience question:</strong> "Where are you forcing something that feels heavy?"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="product-card timeline-row" style="display: flex; flex-direction: row; align-items: center; gap: 3rem; text-align: left; padding: 2rem 3rem; border-left: 6px solid var(--unmask-blue);">
+                    <div style="min-width: 160px; text-align: center;">
+                        <h3 style="color: var(--color-blue); font-size: 2rem; margin: 0; font-family: var(--font-heading);">25:00 - 30:00</h3>
+                        <span class="product-badge" style="background: var(--unmask-pink); margin-top: 0.5rem; display: inline-block; padding: 0.3rem 1rem;">5 Mins</span>
+                    </div>
+                    <div>
+                        <h3 class="product-title" style="margin-bottom: 0.5rem; font-size: 1.5rem;">Bring-It-Home Wrap-Up <span style="font-size: 1.1rem; color: #777; font-weight: normal; font-style: italic;">(Grounded & Clear)</span></h3>
+                        <ul style="padding-left: 1.5rem; color: #555; font-size: 1.1rem;">
+                            <li style="margin-bottom: 0.5rem;"><strong>Core Reminder:</strong> "You aren't broken, just running different hardware."</li>
+                            <li style="margin-bottom: 0.5rem;">One small step to unmask today.</li>
+                            <li>Final CTA to join group and keep connecting.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta" style="background: var(--color-dark); padding: 5rem 0; margin-top: 0;">
+        <div class="container">
+            <div class="cta-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 class="cta-title" style="color: #fff; font-size: 3rem; margin-bottom: 1rem;">Join the Movement</h2>
+                <p class="cta-subtitle" style="color: #ccc; font-size: 1.25rem; margin-bottom: 3rem;">Secure your spot in our Facebook community to access the live session.</p>
+                <a href="https://www.facebook.com/groups/1051728209531522" target="_blank"
+                            class="btn-primary btn-large" style="background-color: var(--unmask-green); color: var(--unmask-black); border-color: var(--unmask-green); font-size: 1.2rem; padding: 1.2rem 3rem;">JOIN THE FREE FACEBOOK GROUP & ACCESS THE LIVE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">Lucy <span class="text-blue">Charlotte</span></div>
+                    <p class="footer-tagline">Say helping you take back your power</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.facebook.com/profile.php?id=100093388753054" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com/lucycharlottenicholls" target="_blank">Instagram</a>
+                    <a href="https://stan.store/lucycharlottenicholls" target="_blank">Shop</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lucy Charlotte Nicholls. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
