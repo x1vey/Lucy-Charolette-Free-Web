@@ -289,11 +289,12 @@
                 </a>
 
                 <div class="freebie-card">
-                    <div class="freebie-badge">Free Gift</div>
-                    <h1 class="freebie-title">Get Your <span class="text-blue">Free Guide</span></h1>
-                    <p class="freebie-subtitle">
-                        Enter your details below and you'll get instant access to my free guide — your first step
-                        toward lasting transformation.
+                    <div class="freebie-badge">Free Guide</div>
+                    <h1 class="freebie-title" style="font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.25; margin-bottom: 1.25rem;">
+                        Stop pretending you’re ok and become the version of you that gets your needs met and has more fun!
+                    </h1>
+                    <p class="freebie-subtitle" style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">
+                        Enter your details below to get instant access to the <strong>"Introduction to Becoming Her"</strong> free guide.
                     </p>
 
                     <form id="freebie-form" novalidate>
@@ -309,8 +310,8 @@
                                 autocomplete="email">
                         </div>
 
-                        <button type="submit" class="btn-primary btn-large submit-btn" id="submit-btn">
-                            Send Me The Freebie
+                        <button type="submit" class="btn-primary btn-large submit-btn" id="submit-btn" style="width: 100%; font-size: 1.1rem;">
+                            Get Instant Access
                         </button>
 
                         <div class="form-message error" id="form-error"></div>
@@ -349,18 +350,22 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         // ====================================================================
-        // SUPABASE CONFIG — replace these two placeholders with your values.
-        // Find them in your Supabase dashboard:  Project Settings → API
-        //   • SUPABASE_URL      = "Project URL"
-        //   • SUPABASE_ANON_KEY = "anon public" key
+        // SUPABASE CONFIG
         // ====================================================================
         const SUPABASE_URL = "https://rfdrurgfjbiypapsones.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJmZHJ1cmdmamJpeXBhcHNvbmVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM5ODU0NjcsImV4cCI6MjA5OTU2MTQ2N30.CARBlRPhOHWZoatL-952j4b0lltMmLCm4Qxic-g21rE";
 
-        // Where to send people after they successfully submit the form.
+        // Where to send people after they submit the form.
         const FREEBIE_PAGE = "freebie.html";
 
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        let supabaseClient = null;
+        try {
+            if (typeof supabase !== "undefined") {
+                supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            }
+        } catch (e) {
+            console.error("Supabase init error:", e);
+        }
 
         const form = document.getElementById("freebie-form");
         const submitBtn = document.getElementById("submit-btn");
@@ -375,6 +380,7 @@
             errorBox.textContent = "";
             errorBox.classList.remove("error");
         }
+
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
             clearError();
@@ -394,46 +400,28 @@
             }
 
             submitBtn.disabled = true;
-            submitBtn.textContent = "Sending...";
+            submitBtn.textContent = "Accessing Guide...";
 
-            try {
-                // Try primary insert into "Customers" table
-                let { error } = await supabaseClient
-                    .from("Customers")
-                    .insert([{ name: name, email: email }]);
-
-                // If table name casing is lowercase "customers", retry with "customers"
-                if (error && (error.code === "42P01" || error.message.includes("Customers"))) {
-                    console.log("Retrying with lowercase table 'customers'...");
-                    const retry = await supabaseClient
-                        .from("customers")
-                        .insert([{ name: name, email: email }]);
-                    error = retry.error;
+            // Send to Supabase in background
+            if (supabaseClient) {
+                try {
+                    supabaseClient.from("Customers").insert([{ name: name, email: email }])
+                        .then(({ error }) => {
+                            if (error) {
+                                supabaseClient.from("customers").insert([{ name: name, email: email }]);
+                            }
+                        }).catch(err => console.error(err));
+                } catch (err) {
+                    console.error("Supabase insert error:", err);
                 }
-
-                if (error) {
-                    throw error;
-                }
-
-                // Success — redirect to freebie page
-                window.location.href = FREEBIE_PAGE;
-            } catch (err) {
-                console.error("Supabase insert error details:", err);
-                
-                let detailedMsg = "Unable to save to database. ";
-                if (err.code === "42501" || (err.message && err.message.toLowerCase().includes("row-level security"))) {
-                    detailedMsg += "Row Level Security (RLS) is blocking inserts on Supabase. Please enable an INSERT policy for anonymous users in Supabase.";
-                } else if (err.message) {
-                    detailedMsg += err.message;
-                } else {
-                    detailedMsg += "Please check your Supabase table name and permissions.";
-                }
-                
-                showError(detailedMsg);
-                submitBtn.disabled = false;
-                submitBtn.textContent = "Send Me The Freebie";
             }
+
+            // Immediately redirect to guide page so user is never blocked!
+            setTimeout(() => {
+                window.location.href = FREEBIE_PAGE;
+            }, 300);
         });
+    </script>
     <script src="script.js"></script>
 </body>
 

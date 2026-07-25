@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Reclaiming Me Journal | Lucy Charlotte Nicholls</title>
+    <title>Introduction to Becoming Her | Lucy Charlotte Nicholls</title>
     <meta name="description"
-        content="The Reclaiming Me Journal: A 30 Day Healing Journey After Narcissistic Abuse by Lucy Charlotte Nicholls.">
+        content="Introduction to Becoming Her: Do Less to Feel More Loved! A free guide by Lucy Charlotte Nicholls.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,348 +15,211 @@
     <link rel="stylesheet" href="style.css">
     <style>
         :root {
-            --journal-blue: #2563eb;
-            --journal-blue-dark: #1e40af;
-            --journal-pink: #f472b6;
-            --journal-pink-bg: #fff1f2;
-            --journal-card-bg: #ffffff;
-            --journal-text: #1f2937;
+            --becoming-coral: #f49895;
+            --becoming-rose: #be185d;
+            --becoming-blue: #374ef2;
+            --becoming-dark: #1e293b;
+            --becoming-light: #faf5f5;
         }
 
-        .journal-page {
+        .guide-page {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background: #f8fafc;
-        }
-
-        /* Top Action Bar */
-        .action-bar {
-            background: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 1rem 1.5rem;
-            position: sticky;
-            top: 70px;
-            z-index: 90;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-        }
-
-        .action-bar .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .action-status {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: #10b981;
-            font-weight: 500;
-        }
-
-        .action-btns {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.88rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: none;
-            text-decoration: none;
-        }
-
-        .btn-print {
-            background: var(--journal-blue);
-            color: #ffffff;
-        }
-
-        .btn-print:hover {
-            background: var(--journal-blue-dark);
-            transform: translateY(-1px);
-        }
-
-        .btn-save {
-            background: #10b981;
-            color: #ffffff;
-        }
-
-        .btn-save:hover {
-            background: #059669;
-            transform: translateY(-1px);
-        }
-
-        /* Nav Pills for Jump Links */
-        .journal-nav {
-            display: flex;
-            gap: 0.5rem;
-            overflow-x: auto;
-            padding: 0.75rem 0;
-            scrollbar-width: none;
-        }
-
-        .journal-nav::-webkit-scrollbar {
-            display: none;
-        }
-
-        .nav-pill {
-            white-space: nowrap;
-            padding: 0.4rem 1rem;
-            background: #f1f5f9;
-            color: #475569;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .nav-pill:hover,
-        .nav-pill.active {
-            background: var(--journal-blue);
-            color: #ffffff;
+            background-color: var(--becoming-light);
         }
 
         /* Hero Header */
-        .journal-hero {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+        .guide-hero {
+            background: linear-gradient(135deg, #f49895 0%, #be185d 100%);
             color: #ffffff;
             padding: 5rem 1.5rem 4rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(190, 24, 93, 0.15);
         }
 
-        .journal-hero::before {
+        .guide-hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(244, 114, 182, 0.25) 0%, transparent 40%);
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 40%);
             pointer-events: none;
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.18);
+        .guide-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(10px);
-            padding: 0.4rem 1.25rem;
+            padding: 0.5rem 1.5rem;
             border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .journal-hero-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.8rem, 6vw, 4.5rem);
-            letter-spacing: 2px;
-            line-height: 1.05;
-            margin-bottom: 0.75rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .journal-hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-            font-weight: 300;
-            opacity: 0.95;
-            margin-bottom: 2rem;
-        }
-
-        /* Welcome Card */
-        .welcome-card {
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--journal-text);
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-            text-align: left;
-            position: relative;
-            z-index: 2;
-        }
-
-        .welcome-card h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            color: var(--journal-blue-dark);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .welcome-card p {
-            font-size: 1.02rem;
-            line-height: 1.8;
-            color: #4b5563;
-            margin-bottom: 1.25rem;
-        }
-
-        .welcome-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .highlight-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 0.93rem;
-            color: #374151;
-            font-weight: 500;
-        }
-
-        .highlight-icon {
-            background: #dbeafe;
-            color: var(--journal-blue);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-weight: 700;
-            font-size: 0.85rem;
-        }
-
-        /* Main Container */
-        .journal-body {
-            padding: 4rem 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* Section Banners */
-        .part-banner {
-            border-radius: 20px;
-            padding: 2rem 2.5rem;
-            color: #ffffff;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .part-banner.blue {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-        }
-
-        .part-banner.pink {
-            background: linear-gradient(135deg, #be185d 0%, #f472b6 100%);
-        }
-
-        .part-tag {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            opacity: 0.9;
-            margin-bottom: 0.4rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .part-title {
+        .guide-hero-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-size: clamp(3rem, 7vw, 5rem);
+            letter-spacing: 2px;
+            line-height: 1.05;
             margin-bottom: 0.75rem;
-            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .part-desc {
-            font-size: 1rem;
-            line-height: 1.7;
-            opacity: 0.95;
-            max-width: 750px;
-        }
-
-        /* Journal Prompt Cards */
-        .journal-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .journal-card:hover {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #f1f5f9;
-        }
-
-        .day-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: #e0e7ff;
-            color: #3730a3;
-            padding: 0.35rem 1rem;
+        .guide-hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 400;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--becoming-rose);
+            display: inline-block;
+            padding: 0.5rem 1.75rem;
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
         }
 
-        .day-badge.pink-theme {
-            background: #ffe4e6;
-            color: #9f1239;
-        }
-
-        .prompt-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #1e293b;
-            line-height: 1.6;
-            margin-bottom: 0.75rem;
-        }
-
-        .prompt-subtext {
-            font-size: 0.95rem;
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
+        .guide-author {
+            font-size: 1rem;
+            opacity: 0.95;
             font-style: italic;
         }
 
-        /* Journal Textarea */
-        .journal-textarea {
+        /* Container & Cards */
+        .guide-body {
+            padding: 3.5rem 1.5rem;
+            max-width: 860px;
+            margin: 0 auto;
             width: 100%;
-            min-height: 130px;
+        }
+
+        .guide-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+            position: relative;
+        }
+
+        .card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .card-tag.coral {
+            background: #ffe4e6;
+            color: #be185d;
+        }
+
+        .card-tag.blue {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .card-tag.green {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .guide-card-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.3rem;
+            color: var(--becoming-dark);
+            margin-bottom: 1.25rem;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .guide-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 1.25rem;
+        }
+
+        .guide-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.25rem 0;
+        }
+
+        .guide-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.85rem;
+            font-size: 1.02rem;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .guide-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--becoming-rose);
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .quote-box {
+            background: #fff5f5;
+            border-left: 4px solid var(--becoming-coral);
+            padding: 1.5rem 1.75rem;
+            border-radius: 0 16px 16px 0;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #881337;
+            line-height: 1.7;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .highlight-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .highlight-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+
+        /* Reflection Area */
+        .reflection-textarea {
+            width: 100%;
+            min-height: 120px;
             padding: 1.2rem;
             border: 1.5px solid #cbd5e1;
             border-radius: 12px;
@@ -366,153 +229,108 @@
             color: #1e293b;
             background: #fafafa;
             resize: vertical;
-            transition: all 0.2s ease;
+            margin-top: 1rem;
         }
 
-        .journal-textarea:focus {
+        .reflection-textarea:focus {
             outline: none;
-            border-color: var(--journal-blue);
+            border-color: var(--becoming-rose);
             background: #ffffff;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 4px rgba(190, 24, 93, 0.08);
         }
 
-        .textarea-footer {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
-            color: #94a3b8;
-        }
-
-        /* Letter Box */
-        .letter-card {
-            background: linear-gradient(to bottom, #ffffff, #faf5f5);
-            border: 2px dashed #f472b6;
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(244, 114, 182, 0.08);
-        }
-
-        .letter-card h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.2rem;
-            color: #be185d;
-            margin-bottom: 0.75rem;
-            letter-spacing: 1px;
-        }
-
-        .letter-instructions {
-            font-size: 1rem;
-            color: #4b5563;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Footer CTA */
-        .completion-banner {
-            background: linear-gradient(135deg, #10b981, #059669);
+        /* Opportunity CTA */
+        .opportunity-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: #ffffff;
             border-radius: 20px;
-            padding: 3rem 2rem;
+            padding: 3rem 2.5rem;
             text-align: center;
-            margin-top: 4rem;
-            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.25);
+            margin-top: 3rem;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.2);
         }
 
-        .completion-banner h2 {
+        .opportunity-card h2 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 2.8rem;
+            color: #f49895;
             margin-bottom: 1rem;
             letter-spacing: 1px;
         }
 
-        .completion-banner p {
-            font-size: 1.1rem;
-            line-height: 1.7;
+        .opportunity-card p {
+            font-size: 1.08rem;
+            line-height: 1.8;
+            color: #94a3b8;
             max-width: 650px;
             margin: 0 auto 2rem;
-            opacity: 0.95;
         }
 
-        .completion-btns {
+        .opportunity-btns {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        /* Print Stylesheet */
-        @media print {
+        .btn-opportunity {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
 
-            .header,
-            .footer,
-            .action-bar,
-            .completion-banner,
-            .btn-action,
-            .journal-nav {
-                display: none !important;
-            }
+        .btn-fb {
+            background: #2563eb;
+            color: #ffffff;
+        }
 
-            body {
-                background: #ffffff !important;
-                color: #000000 !important;
-            }
+        .btn-fb:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
 
-            .journal-hero {
-                background: none !important;
-                color: #000000 !important;
-                padding: 1rem 0 !important;
-            }
+        .btn-yt {
+            background: #dc2626;
+            color: #ffffff;
+        }
 
-            .journal-hero-title {
-                color: #000000 !important;
-                font-size: 2.5rem !important;
-            }
+        .btn-yt:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+        }
 
-            .journal-hero-subtitle {
-                color: #333333 !important;
-            }
+        .btn-coach {
+            background: #f49895;
+            color: #1e293b;
+        }
 
-            .welcome-card,
-            .journal-card,
-            .letter-card {
-                box-shadow: none !important;
-                border: 1px solid #ccc !important;
-                page-break-inside: avoid;
-            }
-
-            .part-banner {
-                background: #f1f5f9 !important;
-                color: #000000 !important;
-                border: 1px solid #ccc !important;
-            }
-
-            .journal-textarea {
-                border: 1px solid #999 !important;
-                background: #ffffff !important;
-                min-height: 100px !important;
-            }
+        .btn-coach:hover {
+            background: #f472b6;
+            transform: translateY(-2px);
         }
 
         @media (max-width: 640px) {
-            .journal-body {
-                padding: 2.5rem 1rem;
+            .guide-hero {
+                padding: 4rem 1.25rem 3rem;
             }
 
-            .welcome-card,
-            .journal-card,
-            .part-banner,
-            .letter-card {
-                padding: 1.5rem;
+            .guide-card,
+            .opportunity-card {
+                padding: 1.75rem 1.25rem;
             }
 
-            .action-bar .container {
+            .opportunity-btns {
                 flex-direction: column;
-                align-items: stretch;
             }
 
-            .action-btns {
+            .btn-opportunity {
+                width: 100%;
                 justify-content: center;
             }
         }
@@ -520,7 +338,7 @@
 </head>
 
 <body>
-    <div class="journal-page">
+    <div class="guide-page">
 
         <!-- Header -->
         <header class="header">
@@ -548,510 +366,201 @@
             </div>
         </header>
 
-        <!-- Sticky Action Bar -->
-        <div class="action-bar">
+        <!-- Hero Header -->
+        <section class="guide-hero">
             <div class="container">
-                <div class="action-status" id="save-status">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                    <span>Auto-saved to this device</span>
-                </div>
-                <div class="action-btns">
-                    <button onclick="saveJournal(true)" class="btn-action btn-save">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
-                            <polyline points="17 21 17 13 7 13 7 21" />
-                            <polyline points="7 3 7 8 15 8" />
-                        </svg>
-                        Save Progress
-                    </button>
-                    <button onclick="window.print()" class="btn-action btn-print">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 6 2 18 2 18 9" />
-                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-                            <rect x="6" y="14" width="12" height="8" />
-                        </svg>
-                        Print / Save PDF
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Journal Hero Header -->
-        <section class="journal-hero">
-            <div class="container">
-                <div class="hero-badge">🎉 Access Granted — Your Free Journal</div>
-                <h1 class="journal-hero-title">THE RECLAIMING ME JOURNAL</h1>
-                <p class="journal-hero-subtitle">A 30 Day Healing Journey After Narcissistic Abuse</p>
-
-                <!-- Welcome Card -->
-                <div class="welcome-card">
-                    <h2>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#f472b6" stroke="none"/>
-                        </svg>
-                        WELCOME & HOW TO USE THIS JOURNAL
-                    </h2>
-                    <p>
-                        If you've been through an experience that left you doubting your reality, questioning your worth,
-                        and wondering how you lost connection with who you truly are, <strong>this journal is for you</strong>.
-                    </p>
-                    <p>
-                        Healing isn't about becoming someone new. It's about remembering who you were before the confusion,
-                        the self-doubt, and the emotional exhaustion.
-                    </p>
-                    <div class="welcome-highlights">
-                        <div class="highlight-item">
-                            <div class="highlight-icon">1</div>
-                            <div><strong>Take your time.</strong> Complete one day at a time.</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-icon">2</div>
-                            <div><strong>Write honestly</strong> and without judgement.</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-icon">3</div>
-                            <div><strong>Be gentle with yourself</strong> throughout the process.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigation Quick Links -->
-                <div class="journal-nav" style="justify-content: center; margin-top: 2rem;">
-                    <a href="#part-1" class="nav-pill">Part 1: Foundational Prompts</a>
-                    <a href="#week-1" class="nav-pill">Week 1 (Days 1–7)</a>
-                    <a href="#week-2" class="nav-pill">Week 2 (Days 8–14)</a>
-                    <a href="#week-3" class="nav-pill">Week 3 (Days 15–21)</a>
-                    <a href="#week-4" class="nav-pill">Week 4 (Days 22–30)</a>
-                    <a href="#future-letter" class="nav-pill">Future Self Letter</a>
-                </div>
+                <span class="guide-badge">✨ Free Method Guide</span>
+                <h1 class="guide-hero-title">INTRODUCTION TO BECOMING HER</h1>
+                <div class="guide-hero-subtitle">Do Less to Feel More Loved!</div>
+                <p class="guide-author">By Lucy Charlotte Nicholls — Quantum Coach & Author</p>
             </div>
         </section>
 
-        <!-- Journal Content Body -->
-        <main class="journal-body">
+        <!-- Main Content -->
+        <main class="guide-body">
 
-            <!-- PART 1: UNDERSTANDING WHAT HAPPENED -->
-            <section id="part-1" style="scroll-margin-top: 140px;">
-                <div class="part-banner blue">
-                    <div class="part-tag">Part 1</div>
-                    <h2 class="part-title">UNDERSTANDING WHAT HAPPENED</h2>
-                    <p class="part-desc">
-                        Before you can fully reclaim yourself, you need to understand the story. Survivors often ask,
-                        <em>"How did I end up here?"</em> Use these foundational prompts to help you get to the bottom of what actually happened to you.
-                    </p>
-                </div>
-
-                <!-- Foundational Prompt 1 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">The Root</span>
-                        <span style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Childhood Blueprint</span>
-                    </div>
-                    <div class="prompt-title">What did I have to do as a child to receive love, approval, or validation? Was love given freely, or was it conditional on my behaviour, achievements, or keeping the peace?</div>
-                    <div class="prompt-subtext">Adult narcissistic abuse is rarely our first encounter with conditional love or walking on eggshells. Sometimes the blueprint was laid out in childhood.</div>
-                    <textarea id="prompt-root-1" class="journal-textarea" placeholder="Reflect and type your thoughts here..."></textarea>
-                </div>
-
-                <!-- Foundational Prompt 2 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Childhood Blueprint</span>
-                        <span style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Internalised Beliefs</span>
-                    </div>
-                    <div class="prompt-title">What silent messages did I internalise growing up?</div>
-                    <div class="prompt-subtext">(e.g., "My needs don't matter", "My boundaries are selfish", "I am only valuable for what I can do for others")</div>
-                    <textarea id="prompt-root-2" class="journal-textarea" placeholder="Reflect and type your thoughts here..."></textarea>
-                </div>
-
-                <!-- Foundational Prompt 3 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Slow Erosion</span>
-                        <span style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Adult Relationships</span>
-                    </div>
-                    <div class="prompt-title">What parts of myself, activities, or friendships became smaller or faded away during my adult relationship(s)?</div>
-                    <textarea id="prompt-erosion-1" class="journal-textarea" placeholder="Reflect and type your thoughts here..."></textarea>
-                </div>
-
-                <!-- Foundational Prompt 4 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Survival Mode</span>
-                        <span style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Adaptation</span>
-                    </div>
-                    <div class="prompt-title">Who did I have to become to survive? (The peacekeeper, the people pleaser, the over-explainer, the caretaker, the perfectionist?)</div>
-                    <div class="prompt-subtext">Acknowledge the truth. You weren't weak. You adapted.</div>
-                    <textarea id="prompt-erosion-2" class="journal-textarea" placeholder="Reflect and type your thoughts here..."></textarea>
-                </div>
-            </section>
-
-            <!-- PART 2: THE 30 DAY HEALING CALENDAR -->
-            
-            <!-- WEEK 1 -->
-            <section id="week-1" style="margin-top: 4rem; scroll-margin-top: 140px;">
-                <div class="part-banner blue">
-                    <div class="part-tag">Week 1</div>
-                    <h2 class="part-title">CLARITY & CONNECTION</h2>
-                    <p class="part-desc">Days 1 to 7 — Uncovering truths and reconnecting with your reality.</p>
-                </div>
-
-                <!-- Day 1 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 1</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
-                    </div>
-                    <div class="prompt-title">What brought me to the point in my healing journey today?</div>
-                    <textarea id="day-1" class="journal-textarea" placeholder="Write your thoughts for Day 1..."></textarea>
-                </div>
-
-                <!-- Day 2 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 2</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
-                    </div>
-                    <div class="prompt-title">What behaviours or patterns am I beginning to recognise that I previously ignored? How far back do these patterns actually go?</div>
-                    <textarea id="day-2" class="journal-textarea" placeholder="Write your thoughts for Day 2..."></textarea>
-                </div>
-
-                <!-- Day 3 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 3</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
-                    </div>
-                    <div class="prompt-title">What emotions come up most often when I think about my past experiences?</div>
-                    <textarea id="day-3" class="journal-textarea" placeholder="Write your thoughts for Day 3..."></textarea>
-                </div>
-
-                <!-- Day 4 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 4</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
-                    </div>
-                    <div class="prompt-title">What truths have I been afraid to admit to myself?</div>
-                    <textarea id="day-4" class="journal-textarea" placeholder="Write your thoughts for Day 4..."></textarea>
-                </div>
-
-                <!-- Day 5 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 5</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
-                    </div>
-                    <div class="prompt-title">If I could speak to the child or younger version of me who first experienced this dynamic, what do they need to hear from me right now?</div>
-                    <textarea id="day-5" class="journal-textarea" placeholder="Write your thoughts for Day 5..."></textarea>
-                </div>
-
-                <!-- Day 6 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 6</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
-                    </div>
-                    <div class="prompt-title">What are 3 undeniable signs that my experience, my pain, and my reality were completely valid?</div>
-                    <textarea id="day-6" class="journal-textarea" placeholder="Write your thoughts for Day 6..."></textarea>
-                </div>
-
-                <!-- Day 7 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 7</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
-                    </div>
-                    <div class="prompt-title">What is the most profound wisdom or lesson I am taking forward from this chapter of my life?</div>
-                    <textarea id="day-7" class="journal-textarea" placeholder="Write your thoughts for Day 7..."></textarea>
-                </div>
-            </section>
-
-            <!-- WEEK 2 -->
-            <section id="week-2" style="margin-top: 4rem; scroll-margin-top: 140px;">
-                <div class="part-banner pink">
-                    <div class="part-tag">Week 2</div>
-                    <h2 class="part-title">REBUILDING SELF TRUST</h2>
-                    <p class="part-desc">Days 8 to 14 — Honoring your intuition and acknowledging your immense inner strength.</p>
-                </div>
-
-                <!-- Day 8 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 8</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
-                    </div>
-                    <div class="prompt-title">When was the last time I ignored my intuition? What was it trying to tell me?</div>
-                    <textarea id="day-8" class="journal-textarea" placeholder="Write your thoughts for Day 8..."></textarea>
-                </div>
-
-                <!-- Day 9 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 9</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
-                    </div>
-                    <div class="prompt-title">What does my intuition actually feel like in my physical body? (e.g. a gut feeling, chest tightness, a sense of peace)</div>
-                    <textarea id="day-9" class="journal-textarea" placeholder="Write your thoughts for Day 9..."></textarea>
-                </div>
-
-                <!-- Day 10 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 10</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
-                    </div>
-                    <div class="prompt-title">What decisions have I made recently, no matter how small, that I feel proud of?</div>
-                    <textarea id="day-10" class="journal-textarea" placeholder="Write your thoughts for Day 10..."></textarea>
-                </div>
-
-                <!-- Day 11 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 11</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
-                    </div>
-                    <div class="prompt-title">What fears stop me from trusting myself completely? Is that voice mine, or is it an echo of someone else's criticism?</div>
-                    <textarea id="day-11" class="journal-textarea" placeholder="Write your thoughts for Day 11..."></textarea>
-                </div>
-
-                <!-- Day 12 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 12</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
-                    </div>
-                    <div class="prompt-title">How do I know when a person, choice, or situation feels truly aligned and safe for me?</div>
-                    <textarea id="day-12" class="journal-textarea" placeholder="Write your thoughts for Day 12..."></textarea>
-                </div>
-
-                <!-- Day 13 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 13</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
-                    </div>
-                    <div class="prompt-title">What secret strengths helped me to survive the most difficult moments of my life?</div>
-                    <textarea id="day-13" class="journal-textarea" placeholder="Write your thoughts for Day 13..."></textarea>
-                </div>
-
-                <!-- Day 14 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 14</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
-                    </div>
-                    <div class="prompt-title">What is the ultimate proof I have that I am vastly stronger than I give myself credit for?</div>
-                    <textarea id="day-14" class="journal-textarea" placeholder="Write your thoughts for Day 14..."></textarea>
-                </div>
-            </section>
-
-            <!-- WEEK 3 -->
-            <section id="week-3" style="margin-top: 4rem; scroll-margin-top: 140px;">
-                <div class="part-banner blue">
-                    <div class="part-tag">Week 3</div>
-                    <h2 class="part-title">BOUNDARIES & SELF RESPECT</h2>
-                    <p class="part-desc">Days 15 to 21 — Setting firm boundaries and standing root-deep in your self-worth.</p>
-                </div>
-
-                <!-- Day 15 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 15</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
-                    </div>
-                    <div class="prompt-title">Where in my life right now do I desperately need to implement stronger boundaries?</div>
-                    <textarea id="day-15" class="journal-textarea" placeholder="Write your thoughts for Day 15..."></textarea>
-                </div>
-
-                <!-- Day 16 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 16</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
-                    </div>
-                    <div class="prompt-title">What behaviours, tone, or treatment am I officially no longer willing to tolerate?</div>
-                    <textarea id="day-16" class="journal-textarea" placeholder="Write your thoughts for Day 16..."></textarea>
-                </div>
-
-                <!-- Day 17 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 17</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
-                    </div>
-                    <div class="prompt-title">What does a healthy, firm boundary look like for me in practice?</div>
-                    <textarea id="day-17" class="journal-textarea" placeholder="Write your thoughts for Day 17..."></textarea>
-                </div>
-
-                <!-- Day 18 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 18</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
-                    </div>
-                    <div class="prompt-title">Who in my life currently respects my boundaries and leaves me feeling safe?</div>
-                    <textarea id="day-18" class="journal-textarea" placeholder="Write your thoughts for Day 18..."></textarea>
-                </div>
-
-                <!-- Day 19 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 19</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
-                    </div>
-                    <div class="prompt-title">What specific situations or dynamics leave me feeling drained or anxious?</div>
-                    <textarea id="day-19" class="journal-textarea" placeholder="Write your thoughts for Day 19..."></textarea>
-                </div>
-
-                <!-- Day 20 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 20</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
-                    </div>
-                    <div class="prompt-title">How can I honour my needs without guilt? If I feel guilty, whose voice from the past am I actually hearing?</div>
-                    <textarea id="day-20" class="journal-textarea" placeholder="Write your thoughts for Day 20..."></textarea>
-                </div>
-
-                <!-- Day 21 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge">Day 21</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
-                    </div>
-                    <div class="prompt-title">Write 3 explicit boundary statements you are committed to practicing this week.</div>
-                    <textarea id="day-21" class="journal-textarea" placeholder="1. I will not...\n2. I reserve the right to...\n3. When someone... I will..."></textarea>
-                </div>
-            </section>
-
-            <!-- WEEK 4 -->
-            <section id="week-4" style="margin-top: 4rem; scroll-margin-top: 140px;">
-                <div class="part-banner pink">
-                    <div class="part-tag">Week 4</div>
-                    <h2 class="part-title">RECLAIMING & AWAKENING</h2>
-                    <p class="part-desc">Days 22 to 30 — Step fully into your authentic joy, sovereignty, and future self.</p>
-                </div>
-
-                <!-- Day 22 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 22</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
-                    </div>
-                    <div class="prompt-title">Who was I before the conditioning and self-doubt took over? What did that version of me love?</div>
-                    <textarea id="day-22" class="journal-textarea" placeholder="Write your thoughts for Day 22..."></textarea>
-                </div>
-
-                <!-- Day 23 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 23</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
-                    </div>
-                    <div class="prompt-title">What activities, hobbies, or spaces make me feel more alive and connected to myself today?</div>
-                    <textarea id="day-23" class="journal-textarea" placeholder="Write your thoughts for Day 23..."></textarea>
-                </div>
-
-                <!-- Day 24 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 24</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
-                    </div>
-                    <div class="prompt-title">What dreams, goals, or creative outlets have I neglected that I am ready to invite back in?</div>
-                    <textarea id="day-24" class="journal-textarea" placeholder="Write your thoughts for Day 24..."></textarea>
-                </div>
-
-                <!-- Day 25 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 25</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
-                    </div>
-                    <div class="prompt-title">What beautiful parts of myself am I actively rediscovering right now?</div>
-                    <textarea id="day-25" class="journal-textarea" placeholder="Write your thoughts for Day 25..."></textarea>
-                </div>
-
-                <!-- Day 26 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 26</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
-                    </div>
-                    <div class="prompt-title">What does true, authentic emotional freedom mean to me right now?</div>
-                    <textarea id="day-26" class="journal-textarea" placeholder="Write your thoughts for Day 26..."></textarea>
-                </div>
-
-                <!-- Day 28 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 28</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
-                    </div>
-                    <div class="prompt-title">What burdens, old stories, or attachments am I finally ready to release?</div>
-                    <textarea id="day-28" class="journal-textarea" placeholder="Write your thoughts for Day 28..."></textarea>
-                </div>
-
-                <!-- Day 29 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 29</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
-                    </div>
-                    <div class="prompt-title">What spiritual or deeper soul lessons have emerged from this entire healing journey?</div>
-                    <textarea id="day-29" class="journal-textarea" placeholder="Write your thoughts for Day 29..."></textarea>
-                </div>
-
-                <!-- Day 30 -->
-                <div class="journal-card">
-                    <div class="card-header">
-                        <span class="day-badge pink-theme">Day 30</span>
-                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
-                    </div>
-                    <div class="prompt-title">What message of love & encouragement does my future self want me to hear today?</div>
-                    <textarea id="day-30" class="journal-textarea" placeholder="Write your final Day 30 reflection..."></textarea>
-                </div>
-            </section>
-
-            <!-- PART 3: FUTURE SELF LETTER EXERCISE -->
-            <section id="future-letter" style="margin-top: 4rem; scroll-margin-top: 140px;">
-                <div class="letter-card">
-                    <h3>A LETTER TO MY FUTURE SELF ♡</h3>
-                    <p class="letter-instructions">
-                        Imagine yourself a year from now. You are healed, confident, peaceful, and fully aligned with who you truly are.
-                        Write a letter from that version of yourself to the person you are today.
-                    </p>
-                    <div style="font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Dear Me,</div>
-                    <textarea id="future-letter-input" class="journal-textarea" style="min-height: 250px;"
-                        placeholder="Write your letter from your future self..."></textarea>
-                    <div style="text-align: right; font-weight: 600; color: #be185d; margin-top: 1rem;">
-                        With Love,<br>
-                        My Future Self ♡
-                    </div>
-                </div>
-            </section>
-
-            <!-- COMPLETION & NEXT STEPS BANNER -->
-            <div class="completion-banner">
-                <h2>READY FOR YOUR NEXT LEVEL OF HEALING?</h2>
+            <!-- Section 1: Introduction -->
+            <div class="guide-card">
+                <span class="card-tag coral">Welcome</span>
+                <h2 class="guide-card-title">Introduction</h2>
                 <p>
-                    You have taken a profound step toward reclaiming your power. If you are ready to take your transformation
-                    further, join my community or work with me directly.
+                    This short guide is an introduction to my signature <strong>"Already Her"™ Method</strong> that helps women learn to <strong>do less to feel MORE loved!</strong>
                 </p>
-                <div class="completion-btns">
+                <p>In this guide, we will get clear on:</p>
+                <ul class="guide-list">
+                    <li><strong>What's going on:</strong> what is currently showing up in your life.</li>
+                    <li><strong>Identify the underlying pattern:</strong> and where it came from — because we can't change what we don't know is happening!</li>
+                    <li><strong>Beginning small changes:</strong> start doing things differently, but <em>NOT</em> trying to change too much at once. This begins the process of forming a new empowered version of you who gets more of what she wants while doing LESS!</li>
+                </ul>
+                <div class="quote-box">
+                    "Let's dive in! You deserve to stop carrying everything on your shoulders."
+                </div>
+            </div>
+
+            <!-- Section 2: What's Happening -->
+            <div class="guide-card">
+                <span class="card-tag blue">Self-Awareness</span>
+                <h2 class="guide-card-title">What's Happening</h2>
+                <p>You might notice that you seem to be doing A LOT for other people:</p>
+                <ul class="guide-list">
+                    <li>Saying yes when you want to say no</li>
+                    <li>Helping others even when you're tired</li>
+                    <li>Putting others first most of the time</li>
+                </ul>
+                <p style="margin-top: 1.5rem;">
+                    But you also may have noticed that you may not actually <strong>FEEL particularly loved</strong>. Instead, you might feel:
+                </p>
+
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">😴</div>
+                        <div class="highlight-text">Tired & Exhausted</div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🫣</div>
+                        <div class="highlight-text">Unseen & Unappreciated</div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">😠</div>
+                        <div class="highlight-text">A Bit Resentful</div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">👻</div>
+                        <div class="highlight-text">Disappearing Into Others</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <label style="font-weight: 600; color: #1e293b; font-size: 0.95rem;">Personal Reflection (Optional): Where in your life are you currently overgiving?</label>
+                    <textarea class="reflection-textarea" placeholder="Type your reflection here..."></textarea>
+                </div>
+            </div>
+
+            <!-- Section 3: The Problem -->
+            <div class="guide-card">
+                <span class="card-tag coral">The Core Pattern</span>
+                <h2 class="guide-card-title">The Problem</h2>
+                <p>
+                    The difficulty when you became an overgiver is you notice:
+                </p>
+                <div class="quote-box" style="background: #eff6ff; border-color: #3b82f6; color: #1e3a8a;">
+                    "I seem to be doing a lot, but I don't really feel loved or appreciated!" — Which sucks!
+                </div>
+                <p>
+                    And you can feel stuck in a catch-22 situation of feeling fed up giving a lot / getting a little... But nervous to give up doing / possibly risk losing what you have. <strong>And that's what keeps us stuck!</strong>
+                </p>
+                <p>
+                    Because sadly, doing more for people does <em>not</em> always create more love! In fact, sometimes it creates:
+                </p>
+                <ul class="guide-list">
+                    <li>Dependence</li>
+                    <li>Imbalance</li>
+                    <li>Quiet resentment (in you)</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem; font-weight: 600; color: #1e293b;">
+                    Love that FEELS nurturing requires other things that right now may feel scary and unfamiliar! It requires:
+                </p>
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">❤️</div>
+                        <div class="highlight-text">Honesty</div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">⚖️</div>
+                        <div class="highlight-text">Balance</div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🌌</div>
+                        <div class="highlight-text">Space</div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🛡️</div>
+                        <div class="highlight-text">Boundaries</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Next Steps -->
+            <div class="guide-card">
+                <span class="card-tag green">Action Plan</span>
+                <h2 class="guide-card-title">Next Steps</h2>
+                <p>
+                    When you've had this realisation, it's tempting to try and turn your whole life around overnight! But this is also something that can feel: <strong>Scary, Daunting, Dysregulating.</strong>
+                </p>
+                <p>
+                    Because you built an identity on this! And identity does NOT like being challenged! It fears change... and it desperately wants to stay safe! To stay the same!
+                </p>
+                <p>
+                    Because you may have an inner-child that never learned she had rights — never learned it was ok to speak up.
+                </p>
+
+                <div class="quote-box" style="background: #ecfdf5; border-color: #10b981; color: #065f46;">
+                    So you need to take change slow... WHILE regulating your nervous system! Because small incremental changes are HOW we build a new identity WITHOUT it feeling awful or overwhelming!
+                </div>
+
+                <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: #1e293b; margin-top: 2rem; margin-bottom: 1rem;">Here are some small things you could consider trying:</h3>
+                <ul class="guide-list">
+                    <li><strong>Pause before saying yes</strong></li>
+                    <li><strong>Ask yourself:</strong> <em>"Do I actually want to do this?"</em></li>
+                    <li><strong>Do one small thing for yourself each day</strong></li>
+                    <li><strong>Let some messages wait</strong> before you reply</li>
+                    <li><strong>Say one honest sentence</strong> you normally hold back</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem;">
+                    This will feel strange at first! That is perfectly normal. You are learning a new pattern, and it takes time for new actions to feel normal.
+                </p>
+
+                <div class="quote-box">
+                    💖 <strong>*Bonus:</strong> Don't forget to praise yourself EVERY time you do something out of your comfort zone! And tell your inner child you're proud of her for being brave and trying new things. Because we ALL thrive with encouragement!
+                </div>
+            </div>
+
+            <!-- Section 5: Progress Builds -->
+            <div class="guide-card">
+                <span class="card-tag coral">Transformation</span>
+                <h2 class="guide-card-title">Progress Builds: You're Building a New Identity</h2>
+                <p>
+                    When you start implementing changes, thinking differently... <strong>You start taking your power back!</strong>
+                </p>
+                <p>Over time, something shifts... You might start to notice improvements like:</p>
+                <ul class="guide-list">
+                    <li>Feeling less tired</li>
+                    <li>Feeling clearer inside!</li>
+                    <li>Feeling more respected!</li>
+                    <li>Your relationships feeling more balanced!</li>
+                    <li>You no longer feel like you're disappearing into other people...</li>
+                </ul>
+            </div>
+
+            <!-- Section 6: Next Steps / Opportunity -->
+            <div class="opportunity-card">
+                <h2>AN OPPORTUNITY FOR YOU</h2>
+                <p>
+                    If you enjoyed this guide and would like to dive deeper or get further support with any of the concepts in here, there are a few options available to you:
+                </p>
+
+                <div class="opportunity-btns">
                     <a href="https://www.facebook.com/groups/1051728209531522" target="_blank" rel="noopener noreferrer"
-                        class="btn-primary btn-large" style="background:#ffffff; color:#059669;">
-                        Join Free Facebook Community
+                        class="btn-opportunity btn-fb">
+                        👍 Join Free FB Community
                     </a>
-                    <a href="https://wa.me/447392170894" target="_blank" rel="noopener noreferrer"
-                        class="btn-secondary btn-large" style="border-color:#ffffff; color:#ffffff;">
-                        Book a Discovery Chat
+                    <a href="https://www.youtube.com/@lucycharlottenicholls" target="_blank" rel="noopener noreferrer"
+                        class="btn-opportunity btn-yt">
+                        ▶️ Follow Me on YouTube
                     </a>
+                    <a href="https://stan.store/lucycharlottenicholls" target="_blank" rel="noopener noreferrer"
+                        class="btn-opportunity btn-coach">
+                        ✨ Work With Me (Coaching)
+                    </a>
+                </div>
+
+                <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 1.05rem; color: #cbd5e1;">
+                    <p style="margin-bottom: 0.5rem; color: #ffffff; font-weight: 500;">
+                        Thank you so much for engaging with my content! I want you to know that you deserve to and can get EVERYTHING you want!
+                    </p>
+                    <p style="font-style: italic; color: #f49895;">All my love, Lucy xxx</p>
                 </div>
             </div>
 
@@ -1080,64 +589,6 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        // ====================================================================
-        // JOURNAL LOCAL STORAGE & AUTO-SAVE SCRIPT
-        // ====================================================================
-        const STORAGE_KEY = "lucy_reclaiming_me_journal";
-        const textareas = document.querySelectorAll(".journal-textarea");
-        const statusEl = document.getElementById("save-status");
-
-        function loadJournal() {
-            try {
-                const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-                textareas.forEach(textarea => {
-                    if (textarea.id && savedData[textarea.id]) {
-                        textarea.value = savedData[textarea.id];
-                    }
-                });
-            } catch (e) {
-                console.error("Error loading journal progress:", e);
-            }
-        }
-
-        function saveJournal(manual = false) {
-            try {
-                const dataToSave = {};
-                textareas.forEach(textarea => {
-                    if (textarea.id) {
-                        dataToSave[textarea.id] = textarea.value;
-                    }
-                });
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
-                
-                if (statusEl) {
-                    const statusText = statusEl.querySelector("span");
-                    if (statusText) {
-                        statusText.textContent = manual ? "Progress saved successfully!" : "Auto-saved to this device";
-                        statusEl.style.color = "#10b981";
-                        if (manual) {
-                            setTimeout(() => {
-                                statusText.textContent = "Auto-saved to this device";
-                            }, 3000);
-                        }
-                    }
-                }
-            } catch (e) {
-                console.error("Error saving journal progress:", e);
-            }
-        }
-
-        // Add auto-save listeners to all textareas
-        textareas.forEach(textarea => {
-            textarea.addEventListener("input", () => {
-                saveJournal(false);
-            });
-        });
-
-        // Initialize loading on DOM Ready
-        document.addEventListener("DOMContentLoaded", loadJournal);
-    </script>
 </body>
 
 </html>
