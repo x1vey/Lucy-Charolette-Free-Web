@@ -375,7 +375,6 @@
             errorBox.textContent = "";
             errorBox.classList.remove("error");
         }
-
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
             clearError();
@@ -398,24 +397,43 @@
             submitBtn.textContent = "Sending...";
 
             try {
-                const { error } = await supabaseClient
+                // Try primary insert into "Customers" table
+                let { error } = await supabaseClient
                     .from("Customers")
                     .insert([{ name: name, email: email }]);
+
+                // If table name casing is lowercase "customers", retry with "customers"
+                if (error && (error.code === "42P01" || error.message.includes("Customers"))) {
+                    console.log("Retrying with lowercase table 'customers'...");
+                    const retry = await supabaseClient
+                        .from("customers")
+                        .insert([{ name: name, email: email }]);
+                    error = retry.error;
+                }
 
                 if (error) {
                     throw error;
                 }
 
-                // Success — send them to the freebie download page.
+                // Success — redirect to freebie page
                 window.location.href = FREEBIE_PAGE;
             } catch (err) {
-                console.error("Supabase insert failed:", err);
-                showError("Something went wrong. Please try again in a moment.");
+                console.error("Supabase insert error details:", err);
+                
+                let detailedMsg = "Unable to save to database. ";
+                if (err.code === "42501" || (err.message && err.message.toLowerCase().includes("row-level security"))) {
+                    detailedMsg += "Row Level Security (RLS) is blocking inserts on Supabase. Please enable an INSERT policy for anonymous users in Supabase.";
+                } else if (err.message) {
+                    detailedMsg += err.message;
+                } else {
+                    detailedMsg += "Please check your Supabase table name and permissions.";
+                }
+                
+                showError(detailedMsg);
                 submitBtn.disabled = false;
                 submitBtn.textContent = "Send Me The Freebie";
             }
         });
-    </script>
     <script src="script.js"></script>
 </body>
 
