@@ -367,24 +367,67 @@
             submitBtn.disabled = true;
             submitBtn.textContent = "Accessing Guide...";
 
-            // Send to Supabase in background
-            if (supabaseClient) {
-                try {
-                    supabaseClient.from("Customers").insert([{ name: name, email: email }])
-                        .then(({ error }) => {
-                            if (error) {
-                                supabaseClient.from("customers").insert([{ name: name, email: email }]);
-                            }
-                        }).catch(err => console.error(err));
-                } catch (err) {
-                    console.error("Supabase insert error:", err);
-                }
+            // Send to Supabase via REST API (using Prefer: return=minimal to avoid RLS SELECT restrictions)
+            try {
+                const insertPromise = (async () => {
+                    // Try Capitalized first: Name, Email, Product
+                    let response = await fetch(`${SUPABASE_URL}/rest/v1/Customers`, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': SUPABASE_ANON_KEY,
+                            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                            'Content-Type': 'application/json',
+                            'Prefer': 'return=minimal'
+                        },
+                        body: JSON.stringify([{ Name: name, Email: email, Product: "Freebie Guide" }])
+                    });
+
+                    if (!response.ok) {
+                        console.warn("Customers (Name, Email, Product) insert status:", response.status);
+                        // Try lowercase: name, email, product
+                        response = await fetch(`${SUPABASE_URL}/rest/v1/Customers`, {
+                            method: 'POST',
+                            headers: {
+                                'apikey': SUPABASE_ANON_KEY,
+                                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                                'Content-Type': 'application/json',
+                                'Prefer': 'return=minimal'
+                            },
+                            body: JSON.stringify([{ name: name, email: email, product: "Freebie Guide" }])
+                        });
+                    }
+
+                    if (!response.ok) {
+                        console.warn("Customers (name, email, product) insert status:", response.status);
+                        // Try lowercase table: customers
+                        response = await fetch(`${SUPABASE_URL}/rest/v1/customers`, {
+                            method: 'POST',
+                            headers: {
+                                'apikey': SUPABASE_ANON_KEY,
+                                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                                'Content-Type': 'application/json',
+                                'Prefer': 'return=minimal'
+                            },
+                            body: JSON.stringify([{ name: name, email: email, product: "Freebie Guide" }])
+                        });
+                    }
+
+                    if (response.ok) {
+                        console.log("Supabase insert successful (201 Created)");
+                    } else {
+                        const errText = await response.text();
+                        console.error("Supabase submission error:", response.status, errText);
+                    }
+                })();
+
+                // Wait up to 2 seconds for Supabase to complete, then redirect
+                const timeoutPromise = new Promise(resolve => setTimeout(resolve, 2000));
+                await Promise.race([insertPromise, timeoutPromise]);
+            } catch (err) {
+                console.error("Supabase insert error:", err);
             }
 
-            // Immediately redirect to guide page so user is never blocked!
-            setTimeout(() => {
-                window.location.href = FREEBIE_PAGE;
-            }, 300);
+            window.location.href = FREEBIE_PAGE;
         });
     </script>
     <script src="script.js"></script>
