@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Your Free Guide | Lucy Charlotte Nicholls</title>
+    <title>Download Becoming Her | Lucy Charlotte Nicholls</title>
     <meta name="description" content="Enter your details to instantly access Lucy Charlotte Nicholls' free guide.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,12 +86,12 @@
         }
 
         .freebie-card {
-            max-width: 520px;
-            margin: 0 auto;
             background: #fff;
             border-radius: 20px;
             padding: 3rem 2.5rem;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.09);
+            max-width: 580px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             animation: fadeInUp 0.8s ease-out both;
         }
 
@@ -109,36 +109,35 @@
 
         .freebie-badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--color-coral), var(--color-blue));
-            color: #fff;
-            padding: 0.4rem 1.3rem;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.75rem;
+            background: linear-gradient(135deg, rgba(244, 152, 149, 0.2) 0%, rgba(55, 78, 242, 0.2) 100%);
+            color: var(--color-blue);
+            font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 2px;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.25rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 1.2rem;
         }
 
         .freebie-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            line-height: 1.1;
-            margin-bottom: 0.75rem;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            line-height: 1.15;
+            margin-bottom: 1rem;
             color: var(--color-dark);
         }
 
         .freebie-subtitle {
             font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            color: #666;
+            font-size: 1.08rem;
+            color: #555;
             line-height: 1.7;
             margin-bottom: 2rem;
         }
 
         .form-group {
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.5rem;
             text-align: left;
         }
 
@@ -151,85 +150,51 @@
             margin-bottom: 0.5rem;
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"] {
+        .form-group input {
             width: 100%;
-            padding: 0.85rem 1rem;
+            padding: 0.9rem 1.2rem;
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
-            color: var(--color-dark);
-            border: 2px solid #e6e2e2;
+            border: 2px solid #e2e8f0;
             border-radius: 12px;
-            background: var(--color-light);
             transition: var(--transition);
+            background-color: #fafafa;
         }
 
         .form-group input:focus {
             outline: none;
             border-color: var(--color-blue);
-            background: #fff;
-            box-shadow: 0 0 0 3px rgba(55, 78, 242, 0.1);
-        }
-
-        .consent-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.7rem;
-            margin-bottom: 1.8rem;
-            text-align: left;
-        }
-
-        .consent-group input[type="checkbox"] {
-            margin-top: 0.25rem;
-            width: 18px;
-            height: 18px;
-            accent-color: var(--color-blue);
-            flex-shrink: 0;
-            cursor: pointer;
-        }
-
-        .consent-group label {
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.6;
-            cursor: pointer;
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(55, 78, 242, 0.1);
         }
 
         .submit-btn {
             width: 100%;
-            border: none;
-            font-size: 1.1rem;
+            margin-top: 0.5rem;
         }
 
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none !important;
-            box-shadow: none !important;
+        .form-privacy {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 1.5rem;
+            line-height: 1.5;
+            text-align: center;
         }
 
         .form-message {
-            margin-top: 1.2rem;
-            font-family: 'Poppins', sans-serif;
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
             font-size: 0.9rem;
-            padding: 0.85rem 1rem;
-            border-radius: 12px;
             display: none;
         }
 
         .form-message.error {
             display: block;
-            background: rgba(255, 107, 107, 0.12);
-            color: #c0392b;
-        }
-
-        .form-privacy {
-            margin-top: 1.5rem;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.78rem;
-            color: #999;
-            line-height: 1.6;
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
         }
 
         @media (max-width: 768px) {
@@ -238,7 +203,7 @@
             }
 
             .freebie-card {
-                padding: 2.25rem 1.5rem;
+                padding: 2rem 1.5rem;
             }
         }
     </style>
@@ -252,14 +217,14 @@
             <div class="container">
                 <div class="header-content">
                     <div class="logo">
-                        <a href="/" style="text-decoration:none;color:inherit;">
+                        <a href="index.html" style="text-decoration:none;color:inherit;">
                             <span class="logo-name">Lucy Charlotte <span class="text-blue">Nicholls</span></span>
                             <span class="logo-tagline">Quantum Coach | Bestselling Author</span>
                         </a>
                     </div>
                     <nav class="nav">
-                        <a href="/">Home</a>
-                        <a href="/#about">About</a>
+                        <a href="index.html">Home</a>
+                        <a href="index.html#about">About</a>
                         <a href="https://wa.me/447392170894" target="_blank" rel="noopener noreferrer"
                             class="btn-whatsapp">
                             <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -290,11 +255,11 @@
 
                 <div class="freebie-card">
                     <div class="freebie-badge">Free Guide</div>
-                    <h1 class="freebie-title" style="font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.25; margin-bottom: 1.25rem;">
-                        Stop pretending you’re ok and become the version of you that gets your needs met and has more fun!
+                    <h1 class="freebie-title">
+                        Download Becoming Her:
                     </h1>
-                    <p class="freebie-subtitle" style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">
-                        Enter your details below to get instant access to the <strong>"Introduction to Becoming Her"</strong> free guide.
+                    <p class="freebie-subtitle">
+                        Stop pretending you’re ok and become the version of you that gets your needs met and has more fun!
                     </p>
 
                     <form id="freebie-form" novalidate>
@@ -310,7 +275,7 @@
                                 autocomplete="email">
                         </div>
 
-                        <button type="submit" class="btn-primary btn-large submit-btn" id="submit-btn" style="width: 100%; font-size: 1.1rem;">
+                        <button type="submit" class="btn-primary btn-large submit-btn" id="submit-btn">
                             Get Instant Access
                         </button>
 
