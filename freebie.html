@@ -4,223 +4,1058 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Free Guide | Lucy Charlotte Nicholls</title>
+    <title>The Reclaiming Me Journal | Lucy Charlotte Nicholls</title>
     <meta name="description"
-        content="Your free guide from Lucy Charlotte Nicholls is ready. Download it below and start your transformation.">
+        content="The Reclaiming Me Journal: A 30 Day Healing Journey After Narcissistic Abuse by Lucy Charlotte Nicholls.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .freebie-page {
+        :root {
+            --journal-blue: #2563eb;
+            --journal-blue-dark: #1e40af;
+            --journal-pink: #f472b6;
+            --journal-pink-bg: #fff1f2;
+            --journal-card-bg: #ffffff;
+            --journal-text: #1f2937;
+        }
+
+        .journal-page {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            background: #f8fafc;
         }
 
-        .freebie-section {
-            flex: 1;
+        /* Top Action Bar */
+        .action-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 1.5rem;
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        .action-bar .container {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .action-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        .action-btns {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-print {
+            background: var(--journal-blue);
+            color: #ffffff;
+        }
+
+        .btn-print:hover {
+            background: var(--journal-blue-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-save {
+            background: #10b981;
+            color: #ffffff;
+        }
+
+        .btn-save:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+
+        /* Nav Pills for Jump Links */
+        .journal-nav {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0.75rem 0;
+            scrollbar-width: none;
+        }
+
+        .journal-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-pill {
+            white-space: nowrap;
+            padding: 0.4rem 1rem;
+            background: #f1f5f9;
+            color: #475569;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-pill:hover,
+        .nav-pill.active {
+            background: var(--journal-blue);
+            color: #ffffff;
+        }
+
+        /* Hero Header */
+        .journal-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+            color: #ffffff;
+            padding: 5rem 1.5rem 4rem;
             text-align: center;
-            padding: 8rem 1.5rem 4rem;
             position: relative;
             overflow: hidden;
         }
 
-        .freebie-section::before {
+        .journal-hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 40% 40%, rgba(100, 149, 237, 0.1) 0%, transparent 50%),
-                         radial-gradient(circle at 60% 60%, rgba(72, 199, 142, 0.08) 0%, transparent 50%);
-            animation: bgFloat 25s ease-in-out infinite;
-            z-index: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(244, 114, 182, 0.25) 0%, transparent 40%);
+            pointer-events: none;
         }
 
-        @keyframes bgFloat {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(1%, -2%) rotate(1deg); }
-            66% { transform: translate(-2%, 1%) rotate(-1deg); }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(10px);
+            padding: 0.4rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .freebie-content {
+        .journal-hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            letter-spacing: 2px;
+            line-height: 1.05;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .journal-hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        /* Welcome Card */
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--journal-text);
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            text-align: left;
             position: relative;
-            z-index: 1;
-            max-width: 620px;
+            z-index: 2;
         }
 
-        .freebie-check {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 2rem;
-            background: linear-gradient(135deg, #48c78e, #3ab07a);
+        .welcome-card h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--journal-blue-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .welcome-card p {
+            font-size: 1.02rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.25rem;
+        }
+
+        .welcome-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.93rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .highlight-icon {
+            background: #dbeafe;
+            color: var(--journal-blue);
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-            box-shadow: 0 10px 40px rgba(72, 199, 142, 0.3);
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 0.85rem;
         }
 
-        @keyframes popIn {
-            0% { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+        /* Main Container */
+        .journal-body {
+            padding: 4rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-        .freebie-check svg {
-            width: 50px;
-            height: 50px;
-            fill: none;
-            stroke: #fff;
-            stroke-width: 3;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-dasharray: 60;
-            stroke-dashoffset: 60;
-            animation: drawCheck 0.5s ease-out 0.5s forwards;
-        }
-
-        @keyframes drawCheck {
-            to { stroke-dashoffset: 0; }
-        }
-
-        .freebie-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            color: var(--color-dark);
-            animation: fadeUp 0.7s ease-out 0.3s both;
-        }
-
-        .freebie-message {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(1rem, 2vw, 1.15rem);
-            font-weight: 300;
-            color: #555;
-            line-height: 1.8;
+        /* Section Banners */
+        .part-banner {
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            color: #ffffff;
             margin-bottom: 2.5rem;
-            animation: fadeUp 0.7s ease-out 0.5s both;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
+        .part-banner.blue {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
         }
 
-        .freebie-buttons {
+        .part-banner.pink {
+            background: linear-gradient(135deg, #be185d 0%, #f472b6 100%);
+        }
+
+        .part-tag {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 0.4rem;
+        }
+
+        .part-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .part-desc {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+            max-width: 750px;
+        }
+
+        /* Journal Prompt Cards */
+        .journal-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .journal-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .day-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .day-badge.pink-theme {
+            background: #ffe4e6;
+            color: #9f1239;
+        }
+
+        .prompt-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1e293b;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .prompt-subtext {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            font-style: italic;
+        }
+
+        /* Journal Textarea */
+        .journal-textarea {
+            width: 100%;
+            min-height: 130px;
+            padding: 1.2rem;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #1e293b;
+            background: #fafafa;
+            resize: vertical;
+            transition: all 0.2s ease;
+        }
+
+        .journal-textarea:focus {
+            outline: none;
+            border-color: var(--journal-blue);
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .textarea-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* Letter Box */
+        .letter-card {
+            background: linear-gradient(to bottom, #ffffff, #faf5f5);
+            border: 2px dashed #f472b6;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(244, 114, 182, 0.08);
+        }
+
+        .letter-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            color: #be185d;
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .letter-instructions {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer CTA */
+        .completion-banner {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.25);
+        }
+
+        .completion-banner h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .completion-banner p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .completion-btns {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeUp 0.7s ease-out 0.7s both;
         }
 
-        .freebie-buttons .btn-primary,
-        .freebie-buttons .btn-secondary {
-            padding: 0.9rem 2rem;
-        }
+        /* Print Stylesheet */
+        @media print {
 
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .download-btn svg {
-            width: 1.2em;
-            height: 1.2em;
-            fill: currentColor;
-        }
-
-        @media (max-width: 768px) {
-            .freebie-section {
-                padding: 7rem 1.5rem 3rem;
+            .header,
+            .footer,
+            .action-bar,
+            .completion-banner,
+            .btn-action,
+            .journal-nav {
+                display: none !important;
             }
 
-            .freebie-check {
-                width: 80px;
-                height: 80px;
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
             }
 
-            .freebie-check svg {
-                width: 40px;
-                height: 40px;
+            .journal-hero {
+                background: none !important;
+                color: #000000 !important;
+                padding: 1rem 0 !important;
+            }
+
+            .journal-hero-title {
+                color: #000000 !important;
+                font-size: 2.5rem !important;
+            }
+
+            .journal-hero-subtitle {
+                color: #333333 !important;
+            }
+
+            .welcome-card,
+            .journal-card,
+            .letter-card {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+                page-break-inside: avoid;
+            }
+
+            .part-banner {
+                background: #f1f5f9 !important;
+                color: #000000 !important;
+                border: 1px solid #ccc !important;
+            }
+
+            .journal-textarea {
+                border: 1px solid #999 !important;
+                background: #ffffff !important;
+                min-height: 100px !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .journal-body {
+                padding: 2.5rem 1rem;
+            }
+
+            .welcome-card,
+            .journal-card,
+            .part-banner,
+            .letter-card {
+                padding: 1.5rem;
+            }
+
+            .action-bar .container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .action-btns {
+                justify-content: center;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="freebie-page">
+    <div class="journal-page">
 
         <!-- Header -->
         <header class="header">
             <div class="container">
                 <div class="header-content">
                     <div class="logo">
-                        <a href="/" style="text-decoration:none;color:inherit;">
+                        <a href="index.html" style="text-decoration:none;color:inherit;">
                             <span class="logo-name">Lucy Charlotte <span class="text-blue">Nicholls</span></span>
                             <span class="logo-tagline">Quantum Coach | Bestselling Author</span>
                         </a>
                     </div>
                     <nav class="nav">
-                        <a href="/">Home</a>
-                        <a href="/#about">About</a>
+                        <a href="index.html">Home</a>
+                        <a href="index.html#about">About</a>
                         <a href="https://wa.me/447392170894" target="_blank" rel="noopener noreferrer"
                             class="btn-whatsapp">
                             <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24zm-3.62 4.41c-.17 0-.45.06-.69.31-.24.25-.91.89-.91 2.17 0 1.28.93 2.52 1.06 2.69.13.17 1.83 2.79 4.43 3.91.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.59.13-.17.25-.67.85-.83 1.02-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.09-1.29-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.42-.8-1.94-.21-.51-.42-.44-.58-.45-.15-.01-.32-.01-.49-.01z" />
+                                <path
+                                    d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24zm-3.62 4.41c-.17 0-.45.06-.69.31-.24.25-.91.89-.91 2.17 0 1.28.93 2.52 1.06 2.69.13.17 1.83 2.79 4.43 3.91.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.59.13-.17.25-.67.85-.83 1.02-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.09-1.29-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.42-.8-1.94-.21-.51-.42-.44-.58-.45-.15-.01-.32-.01-.49-.01z" />
                             </svg>
                             Message me on WhatsApp
                         </a>
                     </nav>
-                    <button class="mobile-menu-toggle" aria-label="Toggle Navigation">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </button>
                 </div>
             </div>
         </header>
 
-        <!-- Freebie Delivery -->
-        <section class="freebie-section">
-            <div class="freebie-content">
-                <div class="freebie-check">
-                    <svg viewBox="0 0 24 24">
-                        <polyline points="4 12 9 17 20 6" />
+        <!-- Sticky Action Bar -->
+        <div class="action-bar">
+            <div class="container">
+                <div class="action-status" id="save-status">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 6L9 17l-5-5" />
                     </svg>
+                    <span>Auto-saved to this device</span>
+                </div>
+                <div class="action-btns">
+                    <button onclick="saveJournal(true)" class="btn-action btn-save">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                            <polyline points="17 21 17 13 7 13 7 21" />
+                            <polyline points="7 3 7 8 15 8" />
+                        </svg>
+                        Save Progress
+                    </button>
+                    <button onclick="window.print()" class="btn-action btn-print">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="6 9 6 2 18 2 18 9" />
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                            <rect x="6" y="14" width="12" height="8" />
+                        </svg>
+                        Print / Save PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Journal Hero Header -->
+        <section class="journal-hero">
+            <div class="container">
+                <div class="hero-badge">🎉 Access Granted — Your Free Journal</div>
+                <h1 class="journal-hero-title">THE RECLAIMING ME JOURNAL</h1>
+                <p class="journal-hero-subtitle">A 30 Day Healing Journey After Narcissistic Abuse</p>
+
+                <!-- Welcome Card -->
+                <div class="welcome-card">
+                    <h2>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#f472b6" stroke="none"/>
+                        </svg>
+                        WELCOME & HOW TO USE THIS JOURNAL
+                    </h2>
+                    <p>
+                        If you've been through an experience that left you doubting your reality, questioning your worth,
+                        and wondering how you lost connection with who you truly are, <strong>this journal is for you</strong>.
+                    </p>
+                    <p>
+                        Healing isn't about becoming someone new. It's about remembering who you were before the confusion,
+                        the self-doubt, and the emotional exhaustion.
+                    </p>
+                    <div class="welcome-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">1</div>
+                            <div><strong>Take your time.</strong> Complete one day at a time.</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">2</div>
+                            <div><strong>Write honestly</strong> and without judgement.</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">3</div>
+                            <div><strong>Be gentle with yourself</strong> throughout the process.</div>
+                        </div>
+                    </div>
                 </div>
 
-                <h1 class="freebie-title">Your Guide Is <span class="text-blue">Ready!</span></h1>
-
-                <p class="freebie-message">
-                    Thank you — you're all set! 🎉<br>
-                    Click the button below to download your free guide and take your first step toward
-                    lasting transformation.
-                </p>
-
-                <div class="freebie-buttons">
-                    <!-- Replace the href below with your hosted PDF URL -->
-                    <a href="YOUR_PDF_URL" target="_blank" rel="noopener noreferrer"
-                        class="btn-primary btn-large download-btn" download>
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z" />
-                        </svg>
-                        Download the Guide
-                    </a>
-                    <a href="/" class="btn-secondary btn-large">Back to Home</a>
+                <!-- Navigation Quick Links -->
+                <div class="journal-nav" style="justify-content: center; margin-top: 2rem;">
+                    <a href="#part-1" class="nav-pill">Part 1: Foundational Prompts</a>
+                    <a href="#week-1" class="nav-pill">Week 1 (Days 1–7)</a>
+                    <a href="#week-2" class="nav-pill">Week 2 (Days 8–14)</a>
+                    <a href="#week-3" class="nav-pill">Week 3 (Days 15–21)</a>
+                    <a href="#week-4" class="nav-pill">Week 4 (Days 22–30)</a>
+                    <a href="#future-letter" class="nav-pill">Future Self Letter</a>
                 </div>
             </div>
         </section>
+
+        <!-- Journal Content Body -->
+        <main class="journal-body">
+
+            <!-- PART 1: UNDERSTANDING WHAT HAPPENED -->
+            <section id="part-1" style="scroll-margin-top: 140px;">
+                <div class="part-banner blue">
+                    <div class="part-tag">Part 1</div>
+                    <h2 class="part-title">UNDERSTANDING WHAT HAPPENED</h2>
+                    <p class="part-desc">
+                        Before you can fully reclaim yourself, you need to understand the story. Survivors often ask,
+                        <em>"How did I end up here?"</em> Use these foundational prompts to help you get to the bottom of what actually happened to you.
+                    </p>
+                </div>
+
+                <!-- Foundational Prompt 1 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">The Root</span>
+                        <span style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Childhood Blueprint</span>
+                    </div>
+                    <div class="prompt-title">What did I have to do as a child to receive love, approval, or validation? Was love given freely, or was it conditional on my behaviour, achievements, or keeping the peace?</div>
+                    <div class="prompt-subtext">Adult narcissistic abuse is rarely our first encounter with conditional love or walking on eggshells. Sometimes the blueprint was laid out in childhood.</div>
+                    <textarea id="prompt-root-1" class="journal-textarea" placeholder="Reflect and type your thoughts here..."></textarea>
+                </div>
+
+                <!-- Foundational Prompt 2 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Childhood Blueprint</span>
+                        <span style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Internalised Beliefs</span>
+                    </div>
+                    <div class="prompt-title">What silent messages did I internalise growing up?</div>
+                    <div class="prompt-subtext">(e.g., "My needs don't matter", "My boundaries are selfish", "I am only valuable for what I can do for others")</div>
+                    <textarea id="prompt-root-2" class="journal-textarea" placeholder="Reflect and type your thoughts here..."></textarea>
+                </div>
+
+                <!-- Foundational Prompt 3 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Slow Erosion</span>
+                        <span style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Adult Relationships</span>
+                    </div>
+                    <div class="prompt-title">What parts of myself, activities, or friendships became smaller or faded away during my adult relationship(s)?</div>
+                    <textarea id="prompt-erosion-1" class="journal-textarea" placeholder="Reflect and type your thoughts here..."></textarea>
+                </div>
+
+                <!-- Foundational Prompt 4 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Survival Mode</span>
+                        <span style="font-size: 0.85rem; color: #64748b; font-weight: 500;">Adaptation</span>
+                    </div>
+                    <div class="prompt-title">Who did I have to become to survive? (The peacekeeper, the people pleaser, the over-explainer, the caretaker, the perfectionist?)</div>
+                    <div class="prompt-subtext">Acknowledge the truth. You weren't weak. You adapted.</div>
+                    <textarea id="prompt-erosion-2" class="journal-textarea" placeholder="Reflect and type your thoughts here..."></textarea>
+                </div>
+            </section>
+
+            <!-- PART 2: THE 30 DAY HEALING CALENDAR -->
+            
+            <!-- WEEK 1 -->
+            <section id="week-1" style="margin-top: 4rem; scroll-margin-top: 140px;">
+                <div class="part-banner blue">
+                    <div class="part-tag">Week 1</div>
+                    <h2 class="part-title">CLARITY & CONNECTION</h2>
+                    <p class="part-desc">Days 1 to 7 — Uncovering truths and reconnecting with your reality.</p>
+                </div>
+
+                <!-- Day 1 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 1</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
+                    </div>
+                    <div class="prompt-title">What brought me to the point in my healing journey today?</div>
+                    <textarea id="day-1" class="journal-textarea" placeholder="Write your thoughts for Day 1..."></textarea>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 2</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
+                    </div>
+                    <div class="prompt-title">What behaviours or patterns am I beginning to recognise that I previously ignored? How far back do these patterns actually go?</div>
+                    <textarea id="day-2" class="journal-textarea" placeholder="Write your thoughts for Day 2..."></textarea>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 3</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
+                    </div>
+                    <div class="prompt-title">What emotions come up most often when I think about my past experiences?</div>
+                    <textarea id="day-3" class="journal-textarea" placeholder="Write your thoughts for Day 3..."></textarea>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 4</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
+                    </div>
+                    <div class="prompt-title">What truths have I been afraid to admit to myself?</div>
+                    <textarea id="day-4" class="journal-textarea" placeholder="Write your thoughts for Day 4..."></textarea>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 5</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
+                    </div>
+                    <div class="prompt-title">If I could speak to the child or younger version of me who first experienced this dynamic, what do they need to hear from me right now?</div>
+                    <textarea id="day-5" class="journal-textarea" placeholder="Write your thoughts for Day 5..."></textarea>
+                </div>
+
+                <!-- Day 6 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 6</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
+                    </div>
+                    <div class="prompt-title">What are 3 undeniable signs that my experience, my pain, and my reality were completely valid?</div>
+                    <textarea id="day-6" class="journal-textarea" placeholder="Write your thoughts for Day 6..."></textarea>
+                </div>
+
+                <!-- Day 7 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 7</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 1: Clarity & Connection</span>
+                    </div>
+                    <div class="prompt-title">What is the most profound wisdom or lesson I am taking forward from this chapter of my life?</div>
+                    <textarea id="day-7" class="journal-textarea" placeholder="Write your thoughts for Day 7..."></textarea>
+                </div>
+            </section>
+
+            <!-- WEEK 2 -->
+            <section id="week-2" style="margin-top: 4rem; scroll-margin-top: 140px;">
+                <div class="part-banner pink">
+                    <div class="part-tag">Week 2</div>
+                    <h2 class="part-title">REBUILDING SELF TRUST</h2>
+                    <p class="part-desc">Days 8 to 14 — Honoring your intuition and acknowledging your immense inner strength.</p>
+                </div>
+
+                <!-- Day 8 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 8</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
+                    </div>
+                    <div class="prompt-title">When was the last time I ignored my intuition? What was it trying to tell me?</div>
+                    <textarea id="day-8" class="journal-textarea" placeholder="Write your thoughts for Day 8..."></textarea>
+                </div>
+
+                <!-- Day 9 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 9</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
+                    </div>
+                    <div class="prompt-title">What does my intuition actually feel like in my physical body? (e.g. a gut feeling, chest tightness, a sense of peace)</div>
+                    <textarea id="day-9" class="journal-textarea" placeholder="Write your thoughts for Day 9..."></textarea>
+                </div>
+
+                <!-- Day 10 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 10</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
+                    </div>
+                    <div class="prompt-title">What decisions have I made recently, no matter how small, that I feel proud of?</div>
+                    <textarea id="day-10" class="journal-textarea" placeholder="Write your thoughts for Day 10..."></textarea>
+                </div>
+
+                <!-- Day 11 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 11</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
+                    </div>
+                    <div class="prompt-title">What fears stop me from trusting myself completely? Is that voice mine, or is it an echo of someone else's criticism?</div>
+                    <textarea id="day-11" class="journal-textarea" placeholder="Write your thoughts for Day 11..."></textarea>
+                </div>
+
+                <!-- Day 12 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 12</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
+                    </div>
+                    <div class="prompt-title">How do I know when a person, choice, or situation feels truly aligned and safe for me?</div>
+                    <textarea id="day-12" class="journal-textarea" placeholder="Write your thoughts for Day 12..."></textarea>
+                </div>
+
+                <!-- Day 13 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 13</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
+                    </div>
+                    <div class="prompt-title">What secret strengths helped me to survive the most difficult moments of my life?</div>
+                    <textarea id="day-13" class="journal-textarea" placeholder="Write your thoughts for Day 13..."></textarea>
+                </div>
+
+                <!-- Day 14 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 14</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 2: Rebuilding Self Trust</span>
+                    </div>
+                    <div class="prompt-title">What is the ultimate proof I have that I am vastly stronger than I give myself credit for?</div>
+                    <textarea id="day-14" class="journal-textarea" placeholder="Write your thoughts for Day 14..."></textarea>
+                </div>
+            </section>
+
+            <!-- WEEK 3 -->
+            <section id="week-3" style="margin-top: 4rem; scroll-margin-top: 140px;">
+                <div class="part-banner blue">
+                    <div class="part-tag">Week 3</div>
+                    <h2 class="part-title">BOUNDARIES & SELF RESPECT</h2>
+                    <p class="part-desc">Days 15 to 21 — Setting firm boundaries and standing root-deep in your self-worth.</p>
+                </div>
+
+                <!-- Day 15 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 15</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
+                    </div>
+                    <div class="prompt-title">Where in my life right now do I desperately need to implement stronger boundaries?</div>
+                    <textarea id="day-15" class="journal-textarea" placeholder="Write your thoughts for Day 15..."></textarea>
+                </div>
+
+                <!-- Day 16 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 16</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
+                    </div>
+                    <div class="prompt-title">What behaviours, tone, or treatment am I officially no longer willing to tolerate?</div>
+                    <textarea id="day-16" class="journal-textarea" placeholder="Write your thoughts for Day 16..."></textarea>
+                </div>
+
+                <!-- Day 17 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 17</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
+                    </div>
+                    <div class="prompt-title">What does a healthy, firm boundary look like for me in practice?</div>
+                    <textarea id="day-17" class="journal-textarea" placeholder="Write your thoughts for Day 17..."></textarea>
+                </div>
+
+                <!-- Day 18 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 18</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
+                    </div>
+                    <div class="prompt-title">Who in my life currently respects my boundaries and leaves me feeling safe?</div>
+                    <textarea id="day-18" class="journal-textarea" placeholder="Write your thoughts for Day 18..."></textarea>
+                </div>
+
+                <!-- Day 19 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 19</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
+                    </div>
+                    <div class="prompt-title">What specific situations or dynamics leave me feeling drained or anxious?</div>
+                    <textarea id="day-19" class="journal-textarea" placeholder="Write your thoughts for Day 19..."></textarea>
+                </div>
+
+                <!-- Day 20 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 20</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
+                    </div>
+                    <div class="prompt-title">How can I honour my needs without guilt? If I feel guilty, whose voice from the past am I actually hearing?</div>
+                    <textarea id="day-20" class="journal-textarea" placeholder="Write your thoughts for Day 20..."></textarea>
+                </div>
+
+                <!-- Day 21 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge">Day 21</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 3: Boundaries & Self Respect</span>
+                    </div>
+                    <div class="prompt-title">Write 3 explicit boundary statements you are committed to practicing this week.</div>
+                    <textarea id="day-21" class="journal-textarea" placeholder="1. I will not...\n2. I reserve the right to...\n3. When someone... I will..."></textarea>
+                </div>
+            </section>
+
+            <!-- WEEK 4 -->
+            <section id="week-4" style="margin-top: 4rem; scroll-margin-top: 140px;">
+                <div class="part-banner pink">
+                    <div class="part-tag">Week 4</div>
+                    <h2 class="part-title">RECLAIMING & AWAKENING</h2>
+                    <p class="part-desc">Days 22 to 30 — Step fully into your authentic joy, sovereignty, and future self.</p>
+                </div>
+
+                <!-- Day 22 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 22</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
+                    </div>
+                    <div class="prompt-title">Who was I before the conditioning and self-doubt took over? What did that version of me love?</div>
+                    <textarea id="day-22" class="journal-textarea" placeholder="Write your thoughts for Day 22..."></textarea>
+                </div>
+
+                <!-- Day 23 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 23</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
+                    </div>
+                    <div class="prompt-title">What activities, hobbies, or spaces make me feel more alive and connected to myself today?</div>
+                    <textarea id="day-23" class="journal-textarea" placeholder="Write your thoughts for Day 23..."></textarea>
+                </div>
+
+                <!-- Day 24 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 24</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
+                    </div>
+                    <div class="prompt-title">What dreams, goals, or creative outlets have I neglected that I am ready to invite back in?</div>
+                    <textarea id="day-24" class="journal-textarea" placeholder="Write your thoughts for Day 24..."></textarea>
+                </div>
+
+                <!-- Day 25 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 25</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
+                    </div>
+                    <div class="prompt-title">What beautiful parts of myself am I actively rediscovering right now?</div>
+                    <textarea id="day-25" class="journal-textarea" placeholder="Write your thoughts for Day 25..."></textarea>
+                </div>
+
+                <!-- Day 26 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 26</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
+                    </div>
+                    <div class="prompt-title">What does true, authentic emotional freedom mean to me right now?</div>
+                    <textarea id="day-26" class="journal-textarea" placeholder="Write your thoughts for Day 26..."></textarea>
+                </div>
+
+                <!-- Day 28 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 28</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
+                    </div>
+                    <div class="prompt-title">What burdens, old stories, or attachments am I finally ready to release?</div>
+                    <textarea id="day-28" class="journal-textarea" placeholder="Write your thoughts for Day 28..."></textarea>
+                </div>
+
+                <!-- Day 29 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 29</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
+                    </div>
+                    <div class="prompt-title">What spiritual or deeper soul lessons have emerged from this entire healing journey?</div>
+                    <textarea id="day-29" class="journal-textarea" placeholder="Write your thoughts for Day 29..."></textarea>
+                </div>
+
+                <!-- Day 30 -->
+                <div class="journal-card">
+                    <div class="card-header">
+                        <span class="day-badge pink-theme">Day 30</span>
+                        <span style="font-size: 0.85rem; color: #64748b;">Week 4: Reclaiming & Awakening</span>
+                    </div>
+                    <div class="prompt-title">What message of love & encouragement does my future self want me to hear today?</div>
+                    <textarea id="day-30" class="journal-textarea" placeholder="Write your final Day 30 reflection..."></textarea>
+                </div>
+            </section>
+
+            <!-- PART 3: FUTURE SELF LETTER EXERCISE -->
+            <section id="future-letter" style="margin-top: 4rem; scroll-margin-top: 140px;">
+                <div class="letter-card">
+                    <h3>A LETTER TO MY FUTURE SELF ♡</h3>
+                    <p class="letter-instructions">
+                        Imagine yourself a year from now. You are healed, confident, peaceful, and fully aligned with who you truly are.
+                        Write a letter from that version of yourself to the person you are today.
+                    </p>
+                    <div style="font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Dear Me,</div>
+                    <textarea id="future-letter-input" class="journal-textarea" style="min-height: 250px;"
+                        placeholder="Write your letter from your future self..."></textarea>
+                    <div style="text-align: right; font-weight: 600; color: #be185d; margin-top: 1rem;">
+                        With Love,<br>
+                        My Future Self ♡
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMPLETION & NEXT STEPS BANNER -->
+            <div class="completion-banner">
+                <h2>READY FOR YOUR NEXT LEVEL OF HEALING?</h2>
+                <p>
+                    You have taken a profound step toward reclaiming your power. If you are ready to take your transformation
+                    further, join my community or work with me directly.
+                </p>
+                <div class="completion-btns">
+                    <a href="https://www.facebook.com/groups/1051728209531522" target="_blank" rel="noopener noreferrer"
+                        class="btn-primary btn-large" style="background:#ffffff; color:#059669;">
+                        Join Free Facebook Community
+                    </a>
+                    <a href="https://wa.me/447392170894" target="_blank" rel="noopener noreferrer"
+                        class="btn-secondary btn-large" style="border-color:#ffffff; color:#ffffff;">
+                        Book a Discovery Chat
+                    </a>
+                </div>
+            </div>
+
+        </main>
 
         <!-- Footer -->
         <footer class="footer">
@@ -245,6 +1080,64 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // ====================================================================
+        // JOURNAL LOCAL STORAGE & AUTO-SAVE SCRIPT
+        // ====================================================================
+        const STORAGE_KEY = "lucy_reclaiming_me_journal";
+        const textareas = document.querySelectorAll(".journal-textarea");
+        const statusEl = document.getElementById("save-status");
+
+        function loadJournal() {
+            try {
+                const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+                textareas.forEach(textarea => {
+                    if (textarea.id && savedData[textarea.id]) {
+                        textarea.value = savedData[textarea.id];
+                    }
+                });
+            } catch (e) {
+                console.error("Error loading journal progress:", e);
+            }
+        }
+
+        function saveJournal(manual = false) {
+            try {
+                const dataToSave = {};
+                textareas.forEach(textarea => {
+                    if (textarea.id) {
+                        dataToSave[textarea.id] = textarea.value;
+                    }
+                });
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
+                
+                if (statusEl) {
+                    const statusText = statusEl.querySelector("span");
+                    if (statusText) {
+                        statusText.textContent = manual ? "Progress saved successfully!" : "Auto-saved to this device";
+                        statusEl.style.color = "#10b981";
+                        if (manual) {
+                            setTimeout(() => {
+                                statusText.textContent = "Auto-saved to this device";
+                            }, 3000);
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("Error saving journal progress:", e);
+            }
+        }
+
+        // Add auto-save listeners to all textareas
+        textareas.forEach(textarea => {
+            textarea.addEventListener("input", () => {
+                saveJournal(false);
+            });
+        });
+
+        // Initialize loading on DOM Ready
+        document.addEventListener("DOMContentLoaded", loadJournal);
+    </script>
 </body>
 
 </html>
